@@ -18,5 +18,3 @@ const locales: Record<string, Language> = {
 
 const locale = ref<Language>(locales.ru)
 </script>
-
-<style lang="scss" src="assets/styles/index.scss"></style>

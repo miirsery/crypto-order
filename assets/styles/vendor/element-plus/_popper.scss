@@ -1,9 +1,13 @@
 .el-popper {
   .el-select-dropdown {
-    &.base-header {
+    &.base-header{
       &__select-language-popper {
         width: 140px;
       }
+    }
+
+    &.select-language-popper {
+      width: 140px;
     }
   }
 }

@@ -7,39 +7,37 @@
   color: $color--gray;
   background-color: transparent;
 
-  &.base-header {
-    &__select-language {
-      .el-input {
-        &__suffix {
-          .el-icon {
-            width: 8px;
-            height: 13px;
-          }
+  &.select-language {
+    .el-input {
+      &__suffix {
+        .el-icon {
+          width: 8px;
+          height: 13px;
         }
+      }
 
-        &__wrapper {
+      &__wrapper {
+        border: none;
+        box-shadow: none;
+
+        &.is-focus {
           border: none;
-          box-shadow: none;
+          box-shadow: none !important;
+        }
+      }
 
-          &.is-focus {
+      &.is-focus {
+        .el-input {
+          &__wrapper {
             border: none;
             box-shadow: none !important;
           }
         }
-
-        &.is-focus {
-          .el-input {
-            &__wrapper {
-              border: none;
-              box-shadow: none !important;
-            }
-          }
-        }
       }
+    }
 
-      &:hover:not(.el-select--disabled) .el-input__wrapper {
-        box-shadow: none;
-      }
+    &:hover:not(.el-select--disabled) .el-input__wrapper {
+      box-shadow: none;
     }
   }
 }

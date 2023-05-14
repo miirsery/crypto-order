@@ -5,7 +5,7 @@
     <hr />
 
     <div class="how-works-sidebar__content">
-      <ul class="mb-32">
+      <ul class="mb-48">
         <li class="how-works-sidebar__link" :class="{ active: isActive('') }" @click="scrollToSection('')">
           <nuxt-link :to="{ path: '/how-works' }">About game</nuxt-link>
         </li>
@@ -33,7 +33,11 @@
         >
           <nuxt-link :to="{ path: '/how-works', hash: '#rewards' }">Rewards</nuxt-link>
         </li>
-        <li class="how-works-sidebar__link" :class="{ active: isActive('#cycles') }" @click="scrollToSection('cycles')">
+        <li
+          class="how-works-sidebar__link p-0"
+          :class="{ active: isActive('#cycles') }"
+          @click="scrollToSection('cycles')"
+        >
           <nuxt-link :to="{ path: '/how-works', hash: '#cycles and recycles' }">Cycles and recycles</nuxt-link>
         </li>
       </ul>

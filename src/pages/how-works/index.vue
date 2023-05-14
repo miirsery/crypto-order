@@ -20,7 +20,7 @@
           The game has 10 levels that open gradually, according to the schedule. As you play, levels open from the
           lowest (cheapest) to the highest. Each level is a separate structure.
         </p>
-        <p class="how-works__text bold color-white">
+        <p class="how-works__text semi-bold color-white">
           The player activates one or more of the available levels in order to earn income. When a level is activated,
           the player occupies the last line in the level chain.
         </p>
@@ -36,13 +36,13 @@
           As soon as a player receives 2 times his basic income, then his level is closed. To play further, you need to
           activate this level again.
         </p>
-        <p class="how-works__text bold color-white">
+        <p class="how-works__text semi-bold color-white">
           The player, having activated the level again, falls to the very bottom of the chain, thereby stimulating him
           to participate in the BNB game further.
         </p>
       </div>
 
-      <el-button class="w-100" type="primary">Connect Wallet</el-button>
+      <el-button class="w-100 py-14" type="primary">Connect Wallet</el-button>
     </el-col>
   </el-row>
 </template>

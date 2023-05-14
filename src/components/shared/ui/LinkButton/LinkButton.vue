@@ -1,5 +1,5 @@
 <template>
-  <el-button link :icon="linkIcon">
+  <el-button class="link-button" link :icon="linkIcon">
     <nuxt-link :to="{ path: props.pageName }">
       <slot />
     </nuxt-link>
@@ -20,7 +20,19 @@ const linkIcon = shallowRef({
   render() {
     return h(BaseIcon, {
       name: 'arrow-right',
+      width: 24,
+      height: 24,
     })
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.link-button {
+  :deep(.el-icon) {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+  }
+}
+</style>

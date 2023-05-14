@@ -10,6 +10,14 @@
   border-radius: 35px !important;
   transition: background-color 0.15s ease-in-out;
 
+  &.is-link {
+    flex-direction: column;
+    border: 1px solid $color--white !important;
+    border-radius: 35px;
+    color: $color--white;
+    padding: 14px 28px !important;
+  }
+
   &.el-button--primary {
     background-color: $color--primary;
 

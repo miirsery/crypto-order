@@ -1,59 +1,73 @@
 <template>
   <footer class="base-footer">
     <div class="base-footer__header">
-      <div class="mb-24">
-        <h2 class="mb-24 mr-48">Connect to us in Telegram</h2>
+      <div class="mb-24 d-f ai-c">
+        <h2 class="mr-48">Connect to us in Telegram</h2>
         <link-button page-name="#" />
       </div>
-      <div>Stay informed. News, Promo, Level updates etc.</div>
+      <div class="base-footer__header-text">Stay informed. News, Promo, Level updates etc.</div>
     </div>
     <div class="base-footer__main">
-      <div>
+      <div class="d-f ai-c jc-sb py-32">
         <base-icon name="logo-2" width="178" height="30" />
 
-        <div>
-          <p>How it works?</p>
-          <p>Support</p>
+        <div class="d-f ai-c">
+          <p class="base-footer__text">How it works?</p>
+          <p class="base-footer__text">Support</p>
         </div>
 
         <div class="d-f ai-c">
-          <el-button class="mr-24 mr-xs-14" type="primary">Connect Wallet</el-button>
+          <el-button class="base-footer__connect-button" type="primary">Connect Wallet</el-button>
 
-          <el-select v-model="selectedLanguage" class="m-2" placeholder="en">
-            <el-option v-for="{ label, value } in languages" :key="value" :label="label" :value="value" />
-          </el-select>
+          <select-language />
         </div>
       </div>
 
       <div class="divider" />
 
-      <div>
+      <div class="d-f ai-c jc-sb py-48">
         <div>All rights reserved ©2023</div>
 
-        <div>
-          <p>Support Telegram Bot</p>
-          <p>Privace Policy</p>
+        <div class="d-f ai-c">
+          <p class="base-footer__text mr-24">Support Telegram Bot</p>
+          <p class="base-footer__text">Privace Policy</p>
         </div>
       </div>
     </div>
   </footer>
 </template>
 
-<script lang="ts" setup>
-const selectedLanguage = ref('')
+<style lang="scss" scoped>
+.base-footer {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $color--background;
+    padding: 80px 0;
 
-const languages = [
-  {
-    label: 'En (USA)',
-    value: 'en',
-  },
-  {
-    label: 'Ru (Russia)',
-    value: 'ru',
-  },
-  {
-    label: 'ch (China)',
-    value: 'ch',
-  },
-]
-</script>
+    &-text {
+      @include font(16px, 22px, 300);
+
+      letter-spacing: 0.01em;
+      color: $color--gray-2;
+    }
+  }
+
+  &__connect-button {
+    padding: 14px 30px;
+    margin-right: 24px;
+
+    @include responsive(xs) {
+      margin-right: 14px;
+    }
+  }
+
+  &__text {
+    @include font(16px, 20px, 500);
+
+    color: $color--gray-1;
+  }
+}
+</style>
