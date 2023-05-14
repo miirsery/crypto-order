@@ -1,0 +1,95 @@
+@use 'resources/variables' as *;
+@use 'resources/mixins' as *;
+
+@font-face {
+  src: url('assets/fonts/Inter-Light.ttf') format('truetype');
+  font-family: $font--main;
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, #app, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: $font--main;
+  color: $color--white;
+  background-color: $color--background;
+}
+
+.h1, h1 {
+  @include text-h1;
+}
+
+.h2, h2 {
+  @include text-h2;
+}
+
+.h3, h3 {
+  @include text-h3;
+}
+
+.h4, h4 {
+  @include text-h4;
+}
+
+.text {
+  &-lg {
+    @include text-lg;
+  }
+
+  &-md {
+    @include text-md;
+  }
+
+  &-sm {
+    @include text-sm;
+  }
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
+.semi-bold {
+  font-weight: 600 !important;
+}
+
+.c-p {
+  cursor: pointer !important;
+}
+
+.p-r {
+  position: relative !important;
+}
+
+.link {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.divider {
+  background-color: rgba($color--white, 0.1);
+}
+
+.parallelogram {
+  width: fit-content;
+  border-radius: 15px;
+  transform: skew(15deg);
+}
+
+// Colors
+@each $_class-name,
+$_color in $colors {
+  // @sample
+  // .bg-primary
+  // .color-primary
+  @include color($_class-name, $_color);
+}

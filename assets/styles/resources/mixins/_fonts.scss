@@ -14,18 +14,22 @@
 }
 
 @mixin text-h2() {
-  @include font(50px, 58.6px, 700);
+  @include font(48px, 58px, 700);
 
-  text-transform: uppercase;
   color: $color--white;
 }
 
 @mixin text-h3() {
-  @include font(18px, 22px, 700);
+  @include font(40px, 48px, 700);
+
+  letter-spacing: 0.01em;
+  color: $color--white;
 }
 
 @mixin text-h4() {
-  @include font(16px, 20px, 700);
+  @include font(20px, 24px, 700);
+
+  letter-spacing: 0.01em;
 }
 
 @mixin text-lg($bold: false) {

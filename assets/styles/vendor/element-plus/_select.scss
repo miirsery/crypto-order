@@ -1,0 +1,46 @@
+@use '@@/assets/styles/resources/variables' as *;
+@use '@@/assets/styles/resources/mixins' as *;
+
+.el-select {
+  border: 1px solid $color--gray;
+  border-radius: 35px;
+  color: $color--gray;
+  background-color: transparent;
+
+  &.base-header {
+    &__select-language {
+      .el-input {
+        &__suffix {
+          .el-icon {
+            width: 8px;
+            height: 13px;
+          }
+        }
+
+        &__wrapper {
+          border: none;
+          box-shadow: none;
+
+          &.is-focus {
+            border: none;
+            box-shadow: none !important;
+          }
+        }
+
+        &.is-focus {
+          .el-input {
+            &__wrapper {
+              border: none;
+              box-shadow: none !important;
+            }
+          }
+        }
+      }
+
+      &:hover:not(.el-select--disabled) .el-input__wrapper {
+        box-shadow: none;
+      }
+    }
+  }
+}
+

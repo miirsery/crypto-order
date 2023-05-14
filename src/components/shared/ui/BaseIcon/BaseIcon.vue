@@ -5,8 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
 type Props = {
   name: string
   prefix?: string
@@ -27,7 +25,7 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 const iconClass = computed(() => [{ 'base-icon--reversed': props.reverse }, `s-icon--${props.name}`])
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .app-icon {
   position: relative;
   display: inline-block;

@@ -1,3 +1,6 @@
-@use 'reset' as *;
-@use 'resources' as *;
-@use 'base' as *;
+@import 'reset';
+@import 'base';
+@import 'vendor';
+
+@import 'fonts';
+@import 'utils';

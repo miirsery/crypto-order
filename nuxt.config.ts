@@ -28,6 +28,14 @@ const svgIconsConfig = createSvgIconsPlugin({
 })
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'Chain Game',
+      htmlAttrs: {
+        class: 'dark',
+      },
+    },
+  },
   modules: ['@element-plus/nuxt', '@nuxtjs/eslint-module'],
   vite: {
     css: {
@@ -45,7 +53,10 @@ export default defineNuxtConfig({
   alias: {
     '@': fileURLToPath(new URL('./src', import.meta.url)),
     '~': fileURLToPath(new URL('./src', import.meta.url)),
+    '@@': fileURLToPath(new URL('./', import.meta.url)),
+    '~~': fileURLToPath(new URL('./', import.meta.url)),
   },
+  plugins: [{ src: '@/plugins/elementPlus' }],
   dir: {
     plugins: './src/plugins',
     layouts: './src/layouts',

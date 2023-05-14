@@ -1,0 +1,28 @@
+// Margins | Paddings
+@include sizes-classes;
+
+// Icons classes
+@include icon-classes;
+
+// Global classes
+@include project-classes;
+
+@include responsive(xs) {
+  @include sizes-classes('-xs');
+  @include project-classes('-xs');
+}
+
+@include responsive(sm) {
+  @include sizes-classes('-sm');
+  @include project-classes('-sm');
+}
+
+@include responsive(md) {
+  @include sizes-classes('-md');
+  @include project-classes('-md');
+}
+
+@include responsive(lg) {
+  @include sizes-classes('-lg');
+  @include project-classes('-lg');
+}

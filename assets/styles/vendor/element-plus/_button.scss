@@ -1,0 +1,20 @@
+@use 'sass:color';
+
+@use '@@/assets/styles/resources/variables' as *;
+@use '@@/assets/styles/resources/mixins' as *;
+
+.el-button {
+  height: auto !important;
+  outline: none !important;
+  border: none !important;
+  border-radius: 35px !important;
+  transition: background-color 0.15s ease-in-out;
+
+  &.el-button--primary {
+    background-color: $color--primary;
+
+    &:hover {
+      background-color: color.adjust($color--primary, $hue: 5)
+    }
+  }
+}
