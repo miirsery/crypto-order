@@ -3,7 +3,7 @@
     <el-table :data="props.transactions" style="width: 100%">
       <el-table-column label="Transactions">
         <template #default="{ row }">
-          <span>{{ row.type }}</span>
+          <span :style="{ color: generateColor(row.type) }">{{ row.type }}</span>
         </template>
       </el-table-column>
       <el-table-column label="ID">
@@ -11,9 +11,10 @@
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="BNB profit">
+      <el-table-column label="BNB profit" class-name="transaction-table__coin">
         <template #default="{ row }">
-          <span>{{ row.profit }}</span>
+          <div class="mr-10">{{ row.profit }}</div>
+          <base-icon name="binance-logo" class="icon-24" />
         </template>
       </el-table-column>
       <el-table-column label="Date">
@@ -40,6 +41,17 @@ type Props = {
 }
 
 const props = defineProps<Props>()
+
+const transactionTypesMap: Record<string, string> = {
+  'Game entry': '#97E59A',
+  'Beneficial payment': '#A8D5FF',
+  'Referral payout': '#FFA8D7',
+  'Your referrals': '#AC97FF',
+}
+
+const generateColor = (type: string): string => {
+  return transactionTypesMap[type]
+}
 </script>
 
 <style lang="scss" scoped>
@@ -62,7 +74,9 @@ const props = defineProps<Props>()
       rgb(78 80 118 / 0.31) 191.42%,
       rgb(91 94 153 / 0.31) 322.27%
     );
+    cursor: pointer;
     padding: 10px;
+    margin-right: 48px;
   }
 }
 

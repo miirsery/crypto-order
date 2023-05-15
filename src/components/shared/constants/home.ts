@@ -1,27 +1,27 @@
 export const transactionsData = [
   {
-    type: 'Long',
+    type: 'Game entry',
     id: 3492,
     profit: 0.3492,
     date: '30.05.2023',
     time: '18:31',
   },
   {
-    type: 'Long',
+    type: 'Beneficial payment',
     id: 3492,
     profit: 0.3492,
     date: '30.05.2023',
     time: '18:31',
   },
   {
-    type: 'Long',
+    type: 'Referral payout',
     id: 3492,
     profit: 0.3492,
     date: '30.05.2023',
     time: '18:31',
   },
   {
-    type: 'Long',
+    type: 'Your referrals',
     id: 3492,
     profit: 0.3492,
     date: '30.05.2023',

@@ -85,7 +85,7 @@
             <p>After 4 payouts, the next place is automatically purchased with payment to the next players.</p>
           </div>
 
-          <link-button outline :to="'#'">How it works?</link-button>
+          <link-button outline :to="ROUTE_PATHS.HowWorks">How it works?</link-button>
         </el-col>
       </el-row>
     </section>
@@ -93,15 +93,36 @@
     <section class="home-page__transactions">
       <h2 class="mb-48">Latest transactions</h2>
 
-      <transactions-table :transactions="transactionsData" />
+      <transactions-table :transactions="transactionsData" class="mb-48" />
 
-      <el-pagination small background layout="prev, pager, next" :total="50" class="mt-4" />
+      <el-pagination
+        background
+        :page-size="7"
+        :next-icon="nextIcon"
+        :prev-icon="prevIcon"
+        :pager-count="2"
+        layout="prev, pager, next"
+        :total="63"
+      />
     </section>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { transactionsData } from '@/components/shared/constants'
+import { ROUTE_PATHS, transactionsData } from '~/components/shared/constants'
+import { BaseIcon } from '~/components/shared/ui'
+
+const nextIcon = shallowRef({
+  render() {
+    return h(BaseIcon, { name: 'arrow-right', class: 'icon-24' })
+  },
+})
+
+const prevIcon = shallowRef({
+  render() {
+    return h(BaseIcon, { name: 'arrow-left', class: 'icon-24' })
+  },
+})
 </script>
 
 <style lang="scss" scoped>

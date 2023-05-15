@@ -1,0 +1,39 @@
+@use '@@/assets/styles/resources/variables' as *;
+@use '@@/assets/styles/resources/mixins' as *;
+
+.el-pagination {
+  .btn-next,
+  .btn-prev,
+  .number,
+  .more {
+    @include font(16px, 19px, 700);
+
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: 10px;
+    background-color: #232539 !important;
+  }
+
+  .number {
+    &.is-active {
+      background-color: #232539 !important;
+    }
+  }
+
+  button {
+    --el-pagination-hover-color: rgba($color--white, 0.2);
+  }
+
+  .el-pager {
+    li {
+      &:hover {
+        --el-pagination-hover-color: $color--white;
+      }
+
+      &:focus-visible {
+        --el-pagination-hover-color: rgba($color--white, 0.2);
+      }
+    }
+  }
+}

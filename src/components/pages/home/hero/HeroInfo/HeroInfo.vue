@@ -3,12 +3,12 @@
     <h1 class="hero-info__title"><span>On-chain</span> social financial game </h1>
     <p class="hero-info__text">Join game once, get profit without limits </p>
     <link-button outline :to="'/'" class="hero-info__join-button">Join the game</link-button>
-    <nuxt-link :to="'#'" class="hero-info__link">How it works?</nuxt-link>
+    <nuxt-link :to="{ path: ROUTE_PATHS.HowWorks }" class="hero-info__link">How it works?</nuxt-link>
   </div>
 </template>
 
 <script lang="ts" setup>
-// import { ROUTE_NAMES } from '@/components/shared/constants'
+import { ROUTE_PATHS } from '~/components/shared/constants'
 </script>
 
 <style lang="scss" scoped>
