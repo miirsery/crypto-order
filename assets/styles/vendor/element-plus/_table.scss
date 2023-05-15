@@ -1,3 +1,73 @@
-.el-table {
+@use '@@/assets/styles/resources/variables' as *;
+@use '@@/assets/styles/resources/mixins' as *;
 
+.el-table {
+  border-radius: 15px;
+
+  thead {
+    color: $color--gray-6 !important;
+
+    .el-table {
+      &__cell {
+        background-color: $color--background !important;
+
+        .cell {
+          @include font(16px, 19px, 300);
+
+          background-color: $color--background !important;
+          padding: 32px 0;
+        }
+
+        &:first-child {
+          .cell {
+            padding-left: 48px;
+          }
+        }
+      }
+    }
+  }
+
+  .el-table {
+    &__cell {
+      padding: 0 !important;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        .cell {
+          @include font(18px, 21px, 500);
+
+          color: $color--white;
+          padding: 0;
+        }
+      }
+    }
+
+    .el-table {
+      &__row {
+        .el-table {
+          &__cell {
+            padding: 43px 0 !important;
+
+            &:first-child {
+              padding-left: 48px !important;
+            }
+
+            &:last-child {
+              display: flex;
+              justify-content: flex-end;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--enable-row-hover {
+    .el-table__body tr:hover>td.el-table__cell {
+      background-color: $color--background !important;
+    }
+  }
 }

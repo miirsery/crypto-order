@@ -3,7 +3,7 @@
     <div class="base-footer__header">
       <div class="mb-24 d-f ai-c">
         <h2 class="mr-48">Connect to us in Telegram</h2>
-        <link-button page-name="#" />
+        <link-button to="#" outline />
       </div>
       <div class="base-footer__header-text">Stay informed. News, Promo, Level updates etc.</div>
     </div>
@@ -52,6 +52,12 @@
 
       letter-spacing: 0.01em;
       color: $color--gray-2;
+    }
+
+    .el-button {
+      :deep(span) {
+        display: none;
+      }
     }
   }
 

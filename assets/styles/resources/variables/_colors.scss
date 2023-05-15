@@ -4,10 +4,17 @@ $color--primary-secondary: #9b78ff;
 $color--gray: #868686;
 $color--gray-1: #c6c6c6;
 $color--gray-2: #e1e1e1;
+$color--gray-3: #d0d0d0;
+$color--gray-4: #b9b9b9;
+$color--gray-5: #e4e4e4;
+$color--gray-6: #c3c3c3;
+$color--gray-7: #878787;
 
 $color--background: #141627;
 
 $colors: (
   ('white', $color--white),
+  ('primary', $color--primary),
+  ('gray-7', $color--gray-7),
   ('background', $color--background),
 )

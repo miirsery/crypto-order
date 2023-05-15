@@ -1,6 +1,6 @@
 <template>
   <header class="base-header">
-    <base-icon name="logo" width="140" height="20" />
+    <base-icon name="logo" width="186" height="34" />
 
     <div class="d-f ai-c">
       <el-button class="base-header__connect-button" type="primary">Connect Wallet</el-button>

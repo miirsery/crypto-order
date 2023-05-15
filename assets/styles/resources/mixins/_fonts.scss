@@ -14,7 +14,7 @@
 }
 
 @mixin text-h2() {
-  @include font(48px, 58px, 700);
+  @include font(50px, 61px, 700);
 
   color: $color--white;
 }

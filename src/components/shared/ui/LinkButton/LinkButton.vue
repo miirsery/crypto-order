@@ -1,7 +1,7 @@
 <template>
-  <el-button class="link-button" link :icon="linkIcon">
-    <nuxt-link :to="{ path: props.pageName }">
-      <slot />
+  <el-button :class="linkButtonsClasses" link :icon="linkIcon">
+    <nuxt-link :to="{ path: props.to }">
+      <slot v-if="slots.default" />
     </nuxt-link>
   </el-button>
 </template>
@@ -11,10 +11,16 @@ import { BaseIcon } from '~/components/shared/ui'
 
 type Props = {
   outline?: boolean
-  pageName: string
+  underline?: boolean
+  to: string
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  outline: false,
+  underline: false,
+})
+
+const slots = useSlots()
 
 const linkIcon = shallowRef({
   render() {
@@ -25,10 +31,17 @@ const linkIcon = shallowRef({
     })
   },
 })
+
+const linkButtonsClasses = computed(() => ['link-button', { outlined: props.outline, underline: props.underline }])
 </script>
 
 <style lang="scss" scoped>
 .link-button {
+  @include font(16px, 20px, 700);
+
+  flex-direction: row-reverse;
+  color: $color--white;
+
   :deep(.el-icon) {
     width: 24px;
     height: 24px;

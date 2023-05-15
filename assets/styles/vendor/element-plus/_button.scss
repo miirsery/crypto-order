@@ -11,11 +11,24 @@
   transition: background-color 0.15s ease-in-out;
 
   &.is-link {
-    flex-direction: column;
-    border: 1px solid $color--white !important;
-    border-radius: 35px;
     color: $color--white;
-    padding: 14px 28px !important;
+
+    [class*=el-icon]+span {
+      margin-right: 6px;
+    }
+
+    &.outlined {
+      border: 1px solid $color--white !important;
+      border-radius: 35px;
+      padding: 14px 28px !important;
+    }
+
+    &.underline {
+       > span {
+         border-bottom: 1px solid $color--white;
+         margin: 0;
+       }
+    }
   }
 
   &.el-button--primary {

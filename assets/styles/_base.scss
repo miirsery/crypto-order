@@ -1,14 +1,6 @@
 @use 'resources/variables' as *;
 @use 'resources/mixins' as *;
 
-@font-face {
-  src: url('assets/fonts/Inter-Light.ttf') format('truetype');
-  font-family: $font--main;
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 html, #app, body {
   width: 100%;
   height: 100%;
@@ -81,8 +73,16 @@ a {
 
 .parallelogram {
   width: fit-content;
-  border-radius: 15px;
-  transform: skew(15deg);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    border-radius: 15px;
+    transform: skew(-10deg);
+    z-index: -1;
+    inset: 0;
+  }
 }
 
 // Colors
