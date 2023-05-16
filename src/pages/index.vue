@@ -1,5 +1,7 @@
 <template>
   <div class="home-page">
+    <div class="divider" />
+
     <section class="mb-200 mb-xs-20 p-r">
       <hero-info />
       <hero-stats />
@@ -424,5 +426,13 @@ const prevIcon = shallowRef({
       }
     }
   }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: transparent radial-gradient(rgba($color--white, 1), rgba($color--white, 0));
+  margin-bottom: 112px;
+  opacity: 0.1;
 }
 </style>
