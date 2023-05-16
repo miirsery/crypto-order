@@ -3,7 +3,7 @@
     v-model="selectedLanguage"
     :class="selectedLanguageClasses"
     :popper-options="{
-      modifiers: [{ name: 'offset', options: { offset: [-60, 8] } }],
+      modifiers: [{ name: 'offset', options: { offset: [-60, 12] } }],
     }"
     :suffix-icon="selectIcon"
     class="select-language"
