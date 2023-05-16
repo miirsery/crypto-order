@@ -13,7 +13,9 @@
 
         <div class="d-f ai-c">
           <p class="base-footer__text">How it works?</p>
-          <p class="base-footer__text">Support</p>
+          <p class="base-footer__text">
+            <nuxt-link :to="{ path: '/support-page' }">Support</nuxt-link>
+          </p>
         </div>
 
         <div class="d-f ai-c">
