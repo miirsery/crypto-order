@@ -1,6 +1,11 @@
 <template>
   <div class="hero-info">
-    <h1 class="hero-info__title"><span>On-chain</span> social financial game </h1>
+    <h1 class="hero-info__title">
+      <span>On-chain</span>
+      social financial game
+
+      <cover-text text="Take a profit in" angle="10" />
+    </h1>
     <p class="hero-info__text">Join game once, get profit without limits </p>
     <link-button outline :to="'/'" class="hero-info__join-button">Join the game</link-button>
     <nuxt-link :to="{ path: ROUTE_PATHS.HowWorks }" class="hero-info__link">How it works?</nuxt-link>
@@ -25,8 +30,14 @@ import { ROUTE_PATHS } from '~/components/shared/constants'
 
     width: 100%;
     max-width: 766px;
+    position: relative;
     letter-spacing: 0.01em;
     margin-bottom: 24px;
+
+    .cover-text {
+      top: -5px;
+      right: 65px;
+    }
 
     span {
       color: $color--primary-secondary;

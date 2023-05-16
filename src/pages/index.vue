@@ -31,6 +31,8 @@
           <h3>21</h3>
           <p>Seconds</p>
         </div>
+
+        <cover-text text="Take a profit in" angle="10" />
       </div>
     </section>
 
@@ -38,6 +40,8 @@
       <div class="home-page__subtitle">How to start?</div>
 
       <div class="home-page__start">
+        <cover-text text="let's start" angle="-10" />
+
         <div class="home-page__start-block parallelogram">
           <h4>Connect wallet</h4>
           <p>connect your MetaMask wallet</p>
@@ -159,10 +163,16 @@ const prevIcon = shallowRef({
 
   &__timer {
     max-width: 908px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+
+    .cover-text {
+      top: -12px;
+      right: -55px;
+    }
 
     &-colon {
       @include font(48px, 58px, 600);
@@ -227,6 +237,11 @@ const prevIcon = shallowRef({
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .cover-text {
+      top: -15px;
+      left: -15px;
+    }
 
     h4 {
       @include font(24px, 29px, 700);
