@@ -9,12 +9,15 @@ $color--gray-4: #b9b9b9;
 $color--gray-5: #e4e4e4;
 $color--gray-6: #c3c3c3;
 $color--gray-7: #878787;
+$color--gray-8: #858585;
 
 $color--background: #141627;
+$color--background-2: #191c2e;
 
 $colors: (
   ('white', $color--white),
   ('primary', $color--primary),
   ('gray-7', $color--gray-7),
+  ('gray-8', $color--gray-8),
   ('background', $color--background),
 )

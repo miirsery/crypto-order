@@ -140,7 +140,8 @@ const prevIcon = shallowRef({
       width: 510px;
       height: 589px;
       border-radius: 15px;
-      background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 100%), #191c2e;
+      background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 100%),
+        $color--background-2;
     }
 
     @include responsive(xs) {

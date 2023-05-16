@@ -86,7 +86,7 @@ const scrollToSection = (section: string) => {
   max-width: 265px;
   border: 1px solid rgba($color--white, 0.2);
   border-radius: 15px;
-  background: #191c2e;
+  background: $color--background-2;
   backdrop-filter: blur(4.5px);
 
   &__connect-button {

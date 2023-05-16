@@ -1,6 +1,8 @@
 <template>
   <header class="base-header">
-    <base-icon name="logo" width="186" height="34" />
+    <nuxt-link :to="{ path: ROUTE_PATHS.HomePage }">
+      <base-icon name="logo" width="186" height="34" />
+    </nuxt-link>
 
     <div class="d-f ai-c">
       <el-button class="base-header__connect-button" type="primary">Connect Wallet</el-button>
@@ -9,6 +11,10 @@
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+import { ROUTE_PATHS } from '~/components/shared/constants'
+</script>
 
 <style lang="scss" scoped>
 .base-header {
