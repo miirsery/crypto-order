@@ -87,6 +87,10 @@ const scrollToSection = (section: string) => {
 
   &__connect-button {
     padding: 14px 54px;
+
+    @include responsive(md, $breakpoints-only-max) {
+      padding: 7px 27px;
+    }
   }
 
   &__link {
@@ -117,22 +121,44 @@ const scrollToSection = (section: string) => {
         border-radius: 0 4px 4px 0;
         background: $color--primary;
         transform: translateY(-50%);
+
+        @include responsive(md, $breakpoints-only-max) {
+          left: -12px;
+        }
       }
+    }
+
+    @include responsive(md, $breakpoints-only-max) {
+      padding: 7px 0;
     }
   }
 
   &__title {
     padding: 30px 42px 32px 32px;
+
+    @include responsive(md, $breakpoints-only-max) {
+      padding: 30px 8px 32px 12px;
+    }
   }
 
   &__content {
     padding: 0 42px 32px 32px;
+
+    @include responsive(md, $breakpoints-only-max) {
+      padding: 0 8px 32px 12px;
+    }
   }
 
   hr {
     height: 1px;
     border: none;
     background-color: rgba($color--white, 0.2);
+  }
+
+  @include responsive(md, $breakpoints-only-max) {
+    height: auto;
+    min-width: 190px;
+    margin-right: 16px;
   }
 }
 </style>
