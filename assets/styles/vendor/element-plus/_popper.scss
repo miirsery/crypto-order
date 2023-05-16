@@ -10,7 +10,7 @@
   .el-select-dropdown {
     &.select-language {
       .el-scrollbar {
-        border-radius: var(--el-popper-border-radius);
+        border-radius: 15px;
       }
 
       &__popper {
