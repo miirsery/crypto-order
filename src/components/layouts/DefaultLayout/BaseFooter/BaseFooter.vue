@@ -28,7 +28,7 @@
       <div class="divider" />
 
       <div class="d-f ai-c jc-sb py-48">
-        <div>All rights reserved ©2023</div>
+        <div class="base-footer__text">All rights reserved ©2023</div>
 
         <div class="d-f ai-c">
           <p class="base-footer__text mr-24">Support Telegram Bot</p>
@@ -67,6 +67,11 @@ import { ROUTE_PATHS } from '~/components/shared/constants'
     }
   }
 
+  &__main {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
   &__connect-button {
     padding: 14px 30px;
     margin-right: 24px;
@@ -79,13 +84,15 @@ import { ROUTE_PATHS } from '~/components/shared/constants'
   &__text {
     @include font(16px, 20px, 500);
 
-    color: $color--gray-1;
+    color: $color--gray-9;
   }
 }
 
 .divider {
   width: 100%;
   height: 1px;
-  opacity: 0.5;
+  background: radial-gradient(rgba($color--white, 1), rgba($color--white, 0));
+  background-color: none;
+  opacity: 0.1;
 }
 </style>

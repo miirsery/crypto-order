@@ -22,17 +22,27 @@
   }
 
   button {
-    --el-pagination-hover-color: rgba($color--white, 0.2);
+    --el-pagination-hover-color: rgb(255 255 255 / 0.2);
+
+    .el-icon {
+      width: 24px;
+      height: 24px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 
   .el-pager {
     li {
       &:hover {
-        --el-pagination-hover-color: $color--white;
+        --el-pagination-hover-color: rgb(255 255 255 / 1);
       }
 
       &:focus-visible {
-        --el-pagination-hover-color: rgba($color--white, 0.2);
+        --el-pagination-hover-color: rgb(255 255 255 / 0.2);
       }
     }
   }
