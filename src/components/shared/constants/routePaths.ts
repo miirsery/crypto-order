@@ -1,5 +1,5 @@
 export const ROUTE_PATHS = {
-  HomePage: '',
+  HomePage: '/',
   HowWorks: '/how-works',
   SupportPage: '/support-page',
 } as const
