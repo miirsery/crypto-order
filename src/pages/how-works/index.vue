@@ -2,10 +2,22 @@
   <div class="how-works">
     <div class="divider" />
 
-    <el-row :gutter="screen.isMobile ? 0 : 24">
+    <div class="how-works__bg-1">
+      <img src="@@/assets/images/bg-1.png" />
+    </div>
+
+    <div class="how-works__bg-2">
+      <img src="@@/assets/images/how-works/bg-7.png" />
+    </div>
+
+    <div class="how-works__bg-3">
+      <img src="@@/assets/images/how-works/bg-8.png" />
+    </div>
+
+    <el-row :gutter="isMobile ? 0 : 24">
       <el-col :xs="24" :sm="24" :md="7" class="mb-32 mb-md-0">
         <client-only>
-          <how-works-sidebar v-if="!screen.isMobileOrTablet" />
+          <how-works-sidebar v-if="!isMobile" />
           <how-works-sidebar-mobile v-else />
         </client-only>
       </el-col>
@@ -64,12 +76,59 @@ import { useScreen } from '~/components/shared/lib/composables/useScreen'
 // eslint-disable-next-line max-len
 import HowWorksSidebarMobile from '~/components/pages/HowWorks/HowWorksSidebar/HowWorksSidebarMobile/HowWorksSidebarMobile.vue'
 
-const screen = useScreen()
+const { isMobile } = useScreen()
 </script>
 
 <style lang="scss" scoped>
 .how-works {
   margin-bottom: 112px;
+
+  &__bg {
+    &-1 {
+      top: 0;
+      left: 0;
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-2 {
+      left: 0;
+      bottom: 0;
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-3 {
+      right: 0;
+      bottom: 0;
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
 
   h3 {
     @include font(28px, 33px, 700);
