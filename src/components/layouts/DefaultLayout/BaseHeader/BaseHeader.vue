@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div v-if="screen.isMobile" class="burger">
+      <div v-if="isMobile" class="burger">
         <input id="menuToggle" v-model="isBurgerActive" class="burger__toggle" type="checkbox" />
         <label class="burger__menu-btn" for="menuToggle">
           <span />
@@ -35,7 +35,7 @@
 import { ROUTE_PATHS } from '~/components/shared/constants'
 import { useScreen } from '~/components/shared/lib/composables/useScreen'
 
-const screen = useScreen()
+const { isMobile } = useScreen()
 
 const isBurgerActive = ref(false)
 

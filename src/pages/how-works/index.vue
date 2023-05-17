@@ -6,12 +6,18 @@
       <img src="@@/assets/images/bg-1.png" />
     </div>
 
-    <div class="how-works__bg-2">
-      <img src="@@/assets/images/how-works/bg-7.png" />
-    </div>
+    <template v-if="!isMobile">
+      <div class="how-works__bg-2">
+        <img src="@@/assets/images/how-works/bg-7.png" />
+      </div>
 
-    <div class="how-works__bg-3">
-      <img src="@@/assets/images/how-works/bg-8.png" />
+      <div class="how-works__bg-3">
+        <img src="@@/assets/images/how-works/bg-8.png" />
+      </div>
+    </template>
+
+    <div v-if="isMobile" class="how-works__bg-2--mobile">
+      <img src="@@/assets/images/how-works/bg-7-mobile.png" />
     </div>
 
     <el-row :gutter="isMobile ? 0 : 24">
@@ -111,6 +117,21 @@ const { isMobile } = useScreen()
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      &--mobile {
+        left: 0;
+        bottom: 0;
+        width: auto;
+        height: auto;
+        position: absolute;
+        z-index: -1;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
 

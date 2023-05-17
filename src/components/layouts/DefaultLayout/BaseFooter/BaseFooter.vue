@@ -4,7 +4,7 @@
 
     <div class="base-footer__main">
       <div class="base-footer__main-content">
-        <base-icon :name="screen.isMobile ? 'logo' : 'logo-2'" width="178" height="30" class="mt-xs-24 mb-xs-42" />
+        <base-icon :name="isMobile ? 'logo' : 'logo-2'" width="178" height="30" class="mt-xs-24 mb-xs-42" />
 
         <div class="d-f ai-c fd-xs-c ai-xs-fs mb-xs-48">
           <nuxt-link class="base-footer__text mr-48 mr-xs-0 mb-xs-24" :to="{ path: ROUTE_PATHS.HowWorks }">
@@ -40,7 +40,7 @@
 import { ROUTE_PATHS } from '~/components/shared/constants'
 import { useScreen } from '~/components/shared/lib/composables/useScreen'
 
-const screen = useScreen()
+const { isMobile } = useScreen()
 </script>
 
 <style lang="scss" scoped>
@@ -81,7 +81,7 @@ const screen = useScreen()
       @include responsive(xs) {
         flex-direction: column;
         align-items: flex-start;
-        padding: 22px 0;
+        padding: 32px 22px;
       }
     }
   }
