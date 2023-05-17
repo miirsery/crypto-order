@@ -7,11 +7,10 @@
         <base-icon :name="screen.isMobile ? 'logo' : 'logo-2'" width="178" height="30" class="mt-xs-24 mb-xs-42" />
 
         <div class="d-f ai-c fd-xs-c ai-xs-fs mb-xs-48">
-          <nuxt-link class="base-footer__text mr-48 mr-xs-0 mb-xs-24" :to="ROUTE_PATHS.HowWorks">
+          <nuxt-link class="base-footer__text mr-48 mr-xs-0 mb-xs-24" :to="{ path: ROUTE_PATHS.HowWorks }">
             How it works?
           </nuxt-link>
-          <!--          TODO: Добавить ссылку-->
-          <p class="base-footer__text">Support</p>
+          <nuxt-link class="base-footer__text" :to="{ path: ROUTE_PATHS.SupportPage }">Support</nuxt-link>
         </div>
 
         <div class="d-f ai-c mb-xs-22">
@@ -69,6 +68,11 @@ const screen = useScreen()
     @include responsive(xs) {
       width: 220px;
       margin-right: 14px;
+    }
+
+    @include responsive(xs-small) {
+      width: 120px;
+      margin-right: 7px;
     }
   }
 

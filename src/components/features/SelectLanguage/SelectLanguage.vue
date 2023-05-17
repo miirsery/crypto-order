@@ -7,8 +7,10 @@
     }"
     :suffix-icon="selectIcon"
     class="select-language"
+    default-first-option
     placeholder="en"
     popper-class="select-language__popper"
+    remote
     @blur="handleBlur"
     @change="handleBlur"
     @focus="handleFocus"

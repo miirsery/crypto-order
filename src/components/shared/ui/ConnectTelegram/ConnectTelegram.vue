@@ -52,5 +52,9 @@
     align-items: flex-start;
     padding: 32px;
   }
+
+  @include responsive(xs-small) {
+    padding: 16px;
+  }
 }
 </style>

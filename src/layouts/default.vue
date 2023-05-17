@@ -16,7 +16,7 @@
 
   &__content {
     max-width: 1195px;
-    padding: 0 15px;
+    padding: 0 10px;
     margin: 0 auto;
   }
 }

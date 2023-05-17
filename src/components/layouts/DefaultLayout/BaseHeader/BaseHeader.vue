@@ -1,30 +1,32 @@
 <template>
-  <header class="base-header">
-    <div class="d-f ai-c jc-sb fd-xs-c ai-xs-fs">
-      <nuxt-link :to="{ path: ROUTE_PATHS.HomePage }" class="mb-xs-18">
-        <base-icon name="logo" width="186" height="34" />
-      </nuxt-link>
+  <div class="base-header">
+    <header class="base-header__wrapper">
+      <div class="d-f ai-c jc-sb fd-xs-c ai-xs-fs">
+        <nuxt-link :to="{ path: ROUTE_PATHS.HomePage }" class="mb-xs-18">
+          <base-icon name="logo" width="186" height="34" />
+        </nuxt-link>
 
-      <div class="d-f ai-c">
-        <el-button class="base-header__connect-button" type="primary">Connect Wallet</el-button>
+        <div class="d-f ai-c">
+          <el-button class="base-header__connect-button" type="primary">Connect Wallet</el-button>
 
-        <select-language />
+          <select-language />
+        </div>
       </div>
-    </div>
 
-    <div v-if="screen.isMobile" class="burger">
-      <input id="menuToggle" v-model="isBurgerActive" class="burger__toggle" type="checkbox" />
-      <label class="burger__menu-btn" for="menuToggle">
-        <span />
-      </label>
-    </div>
-  </header>
+      <div v-if="screen.isMobile" class="burger">
+        <input id="menuToggle" v-model="isBurgerActive" class="burger__toggle" type="checkbox" />
+        <label class="burger__menu-btn" for="menuToggle">
+          <span />
+        </label>
+      </div>
+    </header>
 
-  <client-only>
-    <el-drawer v-model="isBurgerActive" class="base-header__drawer" :show-close="false">
-      <how-works-burger-menu />
-    </el-drawer>
-  </client-only>
+    <client-only>
+      <el-drawer v-model="isBurgerActive" class="base-header__drawer" :show-close="false">
+        <how-works-burger-menu />
+      </el-drawer>
+    </client-only>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -34,11 +36,31 @@ import { useScreen } from '~/components/shared/lib/composables/useScreen'
 const screen = useScreen()
 
 const isBurgerActive = ref(false)
+
+watch(
+  () => isBurgerActive.value,
+  () => {
+    if (isBurgerActive.value && document) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  }
+)
 </script>
 
 <style lang="scss" scoped>
 .base-header {
-  padding: 32px 0;
+  &__wrapper {
+    position: relative;
+    padding: 32px 0;
+
+    @include responsive(xs) {
+      display: flex;
+      justify-content: space-between;
+      padding: 24px 0;
+    }
+  }
 
   &__connect-button {
     padding: 14px 30px;
@@ -47,6 +69,11 @@ const isBurgerActive = ref(false)
     @include responsive(xs) {
       width: 220px;
       margin-right: 14px;
+    }
+
+    @include responsive(xs-small) {
+      width: 120px;
+      margin-right: 7px;
     }
   }
 
@@ -59,9 +86,16 @@ const isBurgerActive = ref(false)
     justify-content: center;
   }
 
-  @include responsive(xs) {
-    display: flex;
-    justify-content: space-between;
+  :deep(.el-drawer) {
+    .el-drawer {
+      &__header {
+        display: none;
+      }
+
+      &__body {
+        padding: 0;
+      }
+    }
   }
 }
 
@@ -90,8 +124,8 @@ const isBurgerActive = ref(false)
   }
 
   &__menu-btn {
-    top: 20px;
-    right: 20px;
+    top: 6px;
+    right: 26px;
     width: 22px;
     height: 22px;
     position: relative;

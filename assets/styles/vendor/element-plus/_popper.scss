@@ -8,15 +8,16 @@
   --el-fill-color-light: rgb(177 159 248 / 0.2);
 
   .el-select-dropdown {
-    &.select-language {
-      .el-scrollbar {
-        border-radius: 15px;
-      }
-
+    &.select-language,
+    &.select-content {
       &__popper {
         width: 140px;
         border-radius: 15px;
         backdrop-filter: blur(13px);
+
+        .el-scrollbar {
+          border-radius: 15px;
+        }
 
         .el-select-dropdown {
           &__list {

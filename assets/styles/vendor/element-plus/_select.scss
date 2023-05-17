@@ -4,14 +4,15 @@
 .el-select {
   --el-color-primary: #745bd7;
   --el-scrollbar-bg-color: var(--el-color-primary);
-  --el-select-border-color-hover: $color--gray;
+  --el-select-border-color-hover: #868686;
 
   border: 1px solid $color--gray;
-  border-radius: 35px;
+  border-radius: 22px;
   color: $color--gray;
   background-color: transparent;
 
-  &.select-language {
+  &.select-language,
+  &.select-content {
     width: 82px;
 
     .el-input {
@@ -33,9 +34,9 @@
       }
 
       &__suffix {
-      align-items: center;
+        align-items: center;
 
-       &-inner {
+        &-inner {
          width: 8px;
          height: 7px;
 
@@ -55,7 +56,6 @@
           &__wrapper {
             height: 45px;
             border: none;
-            border-radius: 22px;
             box-shadow: none !important;
           }
         }
@@ -64,6 +64,54 @@
 
     &:hover:not(.el-select--disabled) .el-input__wrapper {
       box-shadow: none;
+    }
+  }
+
+  &.select-content {
+    width: auto;
+    height: 60px;
+    border-radius: 15px;
+
+    .el-input {
+      &__wrapper {
+        height: 60px;
+      }
+
+      &__inner {
+        color: $color--white;
+      }
+
+      &__suffix {
+        align-items: center;
+
+        &-inner {
+          width: 14px;
+          height: 7px;
+
+          .el-icon {
+            color: $color--white;
+          }
+
+          > :first-child {
+            margin-left: 5px;
+          }
+        }
+
+        svg {
+          width: 14px;
+          height: 7px;
+        }
+      }
+
+      &.is-focus {
+        .el-input {
+          &__wrapper {
+            height: 60px;
+            border: none;
+            box-shadow: none !important;
+          }
+        }
+      }
     }
   }
 }

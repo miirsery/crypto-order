@@ -2,7 +2,7 @@
   <div class="how-works">
     <div class="divider" />
 
-    <el-row :gutter="24">
+    <el-row :gutter="screen.isMobile ? 0 : 24">
       <el-col :xs="24" :sm="24" :md="7">
         <client-only>
           <how-works-sidebar v-if="!screen.isMobileOrTablet" />
@@ -31,7 +31,9 @@
             the player occupies the last line in the level chain.
           </p>
           <br />
-          <p> Part of the deposit goes to higher players, and part is distributed to their referrals. </p>
+          <p class="how-works__text">
+            Part of the deposit goes to higher players, and part is distributed to their referrals.
+          </p>
           <br />
           <p class="how-works__text mb-24">
             Thus, by occupying a place on the line, you will receive a basic reward from new players.
@@ -69,10 +71,18 @@ const screen = useScreen()
 .how-works {
   margin-bottom: 112px;
 
+  h3 {
+    @include font(28px, 33px, 700);
+  }
+
   &__text {
     @include font(18px, 22px, 300);
 
     color: $color--gray-2;
+
+    @include responsive(xs) {
+      @include font(14px, 17px, 300);
+    }
   }
 
   &__structure {
@@ -86,6 +96,10 @@ const screen = useScreen()
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  @include responsive(xs) {
+    margin-bottom: 60px;
   }
 }
 
