@@ -26,6 +26,10 @@
       letter-spacing: 0.01em;
       padding: 0 0 14px;
     }
+
+    &__error {
+      padding-top: 8px;
+    }
   }
 
   .el-input {

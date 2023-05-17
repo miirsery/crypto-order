@@ -32,10 +32,24 @@
   }
 
   &.el-button--primary {
-    background-color: $color--primary;
+    background-color: $color--primary !important;
 
     &:hover {
-      background-color: color.adjust($color--primary, $hue: 5)
+      background-color: color.adjust($color--primary, $hue: 5) !important;
+    }
+
+    &:active {
+      background-color: color.adjust($color--primary, $hue: 5);
+    }
+
+    &.is-disabled {
+      background-color: $color--primary;
+
+      &:hover {
+        background-image: none;
+        background-color: color.adjust($color--primary, $hue: 5);
+        cursor: auto;
+      }
     }
   }
 }

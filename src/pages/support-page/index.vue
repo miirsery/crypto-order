@@ -3,13 +3,19 @@
     <div class="support-write">
       <h3 class="support-write__title">Write to us</h3>
       <div class="support-page__form">
-        <el-form ref="supportFormInstance" :model="supportFormModel" :rules="rules" class="supportFormModel">
+        <el-form
+          ref="supportFormInstance"
+          :model="supportFormModel"
+          hide-required-asterisk
+          :rules="rules"
+          class="supportFormModel"
+        >
           <div class="support-page__form-identifier">
             <el-form-item label="Your name" prop="name">
               <el-input v-model="supportFormModel.name" />
             </el-form-item>
             <el-form-item label="E-mail" prop="email">
-              <el-input v-model="supportFormModel.email" type="email" />
+              <el-input v-model="supportFormModel.email" prop="email" type="email" />
             </el-form-item>
           </div>
           <div class="support-page__question">
@@ -92,9 +98,12 @@ const supportFormModel = reactive({
 })
 
 const rules = reactive<FormRules>({
-  name: [{ required: true, trigger: 'blur' }],
-  email: [{ required: true, trigger: 'blur', type: 'email' }],
-  question: [{ required: true, trigger: 'blur' }],
+  name: [{ required: true, message: 'Fill in the field', trigger: 'blur' }],
+  email: [
+    { required: true, message: 'Fill in the field', trigger: ['blur'] },
+    { type: 'email', message: 'Not valid email', trigger: ['blur', 'change'] },
+  ],
+  question: [{ required: true, message: 'Fill in the field', trigger: 'blur' }],
 })
 
 const handleFormSubmit = (): void => {
