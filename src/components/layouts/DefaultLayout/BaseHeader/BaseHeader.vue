@@ -9,7 +9,9 @@
         <div class="d-f ai-c">
           <el-button class="base-header__connect-button" type="primary">Connect Wallet</el-button>
 
-          <select-language />
+          <client-only>
+            <select-language />
+          </client-only>
         </div>
       </div>
 

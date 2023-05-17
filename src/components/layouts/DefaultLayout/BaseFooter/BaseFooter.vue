@@ -16,7 +16,9 @@
         <div class="d-f ai-c mb-xs-22">
           <el-button class="base-footer__connect-button" type="primary">Connect Wallet</el-button>
 
-          <select-language />
+          <client-only>
+            <select-language />
+          </client-only>
         </div>
       </div>
 
