@@ -14,8 +14,7 @@
 
         <div class="d-f ai-c">
           <nuxt-link class="base-footer__text mr-48" :to="ROUTE_PATHS.HowWorks">How it works?</nuxt-link>
-          <!--          TODO: Добавить ссылку-->
-          <p class="base-footer__text">Support</p>
+          <nuxt-link class="base-footer__text" :to="ROUTE_PATHS.SupportPage">Support</nuxt-link>
         </div>
 
         <div class="d-f ai-c">

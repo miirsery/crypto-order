@@ -1,21 +1,21 @@
 <template>
-  <section class="support-grid mb-112 mb-xs-60 d-f">
+  <section class="support mb-112 mb-xs-60 d-f">
     <div class="support-write">
-      <h3>Write to us</h3>
+      <h3 class="support-write__title">Write to us</h3>
       <div class="support-page__form">
-        <el-form ref="ruleFormRef" :model="ruleForm" status-icon :rules="rules" class="demo-ruleForm">
-          <div class="support-page__form-top">
+        <el-form ref="supportFormInstance" :model="supportFormModel" :rules="rules" class="supportFormModel">
+          <div class="support-page__form-identifier">
             <el-form-item label="Your name" prop="name">
-              <el-input v-model="ruleForm.name" />
+              <el-input v-model="supportFormModel.name" />
             </el-form-item>
             <el-form-item label="E-mail" prop="email">
-              <el-input v-model="ruleForm.email" type="email" />
+              <el-input v-model="supportFormModel.email" type="email" />
             </el-form-item>
           </div>
-          <div class="support-page__form-bot">
+          <div class="support-page__question">
             <el-form-item label="Your question" prop="question">
               <el-input
-                v-model="ruleForm.question"
+                v-model="supportFormModel.question"
                 type="textarea"
                 rows="7"
                 class="input-question__scrollbar"
@@ -24,16 +24,17 @@
             </el-form-item>
           </div>
           <el-form-item>
-            <el-checkbox v-model="ruleForm.agreePrivacyPolicy">
-              I agree with the <el-link type="primary" @click="navigateToPrivacyPolicy">Privaci Poilicy</el-link>
+            <el-checkbox v-model="supportFormModel.agreePrivacyPolicy">
+              I agree with the
+              <nuxt-link class="support-page__privacy-policy" :to="ROUTE_PATHS.PrivacyPolicy">Privacy Policy</nuxt-link>
             </el-checkbox>
           </el-form-item>
           <el-form-item>
             <el-button
               class="support-page__send-button"
               type="primary"
-              :disabled="!ruleForm.agreePrivacyPolicy"
-              @click="submitForm(ruleFormRef)"
+              :disabled="!supportFormModel.agreePrivacyPolicy"
+              @click="handleFormSubmit"
             >
               Send
             </el-button>
@@ -44,7 +45,7 @@
     <div class="support-contacts">
       <h3 class="support-contacts__title">Contact with us</h3>
       <div class="support-contacts__list">
-        <div class="support-contacts__item">
+        <div class="support-contacts__item mb-32">
           <div class="support-contacts__item-main">
             <img class="support-contacts__item-image" src="@@/assets/images/Icon-VR.png" alt="support telegram bot" />
             <div class="support-contacts__item-caption">
@@ -77,17 +78,13 @@
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import type { FormInstance, FormRules } from 'element-plus'
+import { ROUTE_PATHS } from '~/components/shared/constants'
 
-const ruleFormRef = ref<FormInstance>()
 const router = useRouter()
 
-const navigateToPrivacyPolicy = (event: MouseEvent) => {
-  event.preventDefault()
+const supportFormInstance = ref<FormInstance>()
 
-  router.push(router.currentRoute.value.path)
-}
-
-const ruleForm = reactive({
+const supportFormModel = reactive({
   name: '',
   email: '',
   question: '',
@@ -96,65 +93,58 @@ const ruleForm = reactive({
 
 const rules = reactive<FormRules>({
   name: [{ required: true, trigger: 'blur' }],
-  email: [{ required: true, trigger: 'blur' }],
+  email: [{ required: true, trigger: 'blur', type: 'email' }],
   question: [{ required: true, trigger: 'blur' }],
 })
 
-const submitForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  formEl.validate((valid) => {
-    if (valid) {
-      console.log('submit!')
-    } else {
-      console.log('error submit!')
-
-      return false
-    }
-  })
+const handleFormSubmit = (): void => {
+  if (supportFormInstance.value) {
+    supportFormInstance.value.validate(async (valid) => {
+      //TODO: Интеграция.
+    })
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-h3 {
-  margin-bottom: 48px;
-}
-
-h4 {
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 31px;
-  margin-bottom: 14px;
-}
-
-.support-grid {
-  display: grid;
-  gap: 32px;
+.support {
+  display: flex;
+  justify-content: space-between;
 }
 
 .support-write {
+  &__title {
+    margin-bottom: 48px;
+  }
+
   .support-page {
     margin-top: 48px;
 
     &__form {
       width: 564px;
       height: 494px;
-      border: 1px solid rgb(255 255 255 / 0.2);
+      border: 1px solid rgba($color--white, 0.2);
       border-radius: 15px;
-      background-color: $color--background-1;
+      background-color: $color--background-2;
       padding: 32px;
       backdrop-filter: blur(4.5px);
     }
 
-    &__form-top {
+    &__form-identifier {
       display: flex;
       justify-content: space-between;
       margin-bottom: 47px;
     }
 
-    &__form-bot {
+    &__question {
       width: 500px;
       height: 190px;
       margin-bottom: 16.5px;
+    }
+
+    &__privacy-policy {
+      border-bottom: 1px $color--primary solid;
+      color: $color--primary;
     }
 
     &__send-button {
@@ -164,6 +154,25 @@ h4 {
 }
 
 .support-contacts {
+  &__title {
+    margin-bottom: 48px;
+  }
+
+  &__item-title {
+    @include font(26px, 31px, 700);
+
+    margin-bottom: 14px;
+    margin-left: 32px;
+  }
+
+  &__item-description {
+    @include font(16px, 19px, 300);
+
+    letter-spacing: 0.01em;
+    color: $color--gray-9;
+    margin-left: 32px;
+  }
+
   &__button {
     width: 78px;
     height: 231px;
@@ -182,45 +191,18 @@ h4 {
   }
 
   &__item {
+    width: 564px;
+    height: 231px;
+    display: flex;
     justify-content: space-between;
+    border: 1px solid rgba($color--white, 0.2);
+    border-radius: 15px;
+    background-color: $color--background-2;
+    backdrop-filter: blur(4.5px);
   }
 
-  &__list {
-    display: grid;
-    gap: 32px;
-
-    .support-contacts__item {
-      width: 564px;
-      height: 231px;
-      display: flex;
-      border: 1px solid rgb(255 255 255 / 0.2);
-      border-radius: 15px;
-      background-color: $color--background-1;
-      backdrop-filter: blur(4.5px);
-    }
-
-    .support-contacts__item-image {
-      padding-left: 10px;
-    }
-
-    .support-contacts__item-caption {
-      padding-left: 32px;
-    }
-
-    .support-contacts__item-title {
-      font-weight: 700;
-      font-size: 26px;
-      line-height: 31px;
-      margin-bottom: 14px;
-    }
-
-    .support-contacts__item-description {
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 19px;
-      letter-spacing: 0.01em;
-      color: $color--gray-9;
-    }
+  &__item-image {
+    padding-left: 10px;
   }
 }
 </style>
