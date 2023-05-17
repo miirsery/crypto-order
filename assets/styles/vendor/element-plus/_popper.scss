@@ -1,13 +1,58 @@
+@use '@@/assets/styles/resources/variables' as *;
+@use '@@/assets/styles/resources/mixins' as *;
+
 .el-popper {
+  --el-bg-color-overlay: #191c2e;
+  --el-popper-border-radius: 15px !important;
+  --el-color-primary: #745bd7;
+  --el-fill-color-light: rgb(177 159 248 / 0.2);
+
   .el-select-dropdown {
-    &.base-header{
-      &__select-language-popper {
+    &.select-language {
+      .el-scrollbar {
+        border-radius: 15px;
+      }
+
+      &__popper {
         width: 140px;
+        border-radius: 15px;
+        backdrop-filter: blur(13px);
+
+        .el-select-dropdown {
+          &__list {
+            padding: 0;
+          }
+
+          &__item {
+            @include font(16px, 20px);
+
+            height: auto;
+            letter-spacing: 0.005em;
+            text-align: center;
+            color: $color--white;
+            transition: background-color 0.15s ease-in-out;
+            padding: 10px 14px;
+
+            &:not(:last-child) {
+              border-bottom: 1px solid rgb(255 255 255 / 0.1);
+            }
+
+            &.selected {
+              font-weight: 400;
+            }
+          }
+        }
       }
     }
+  }
 
-    &.select-language-popper {
-      width: 140px;
+  .el-popper {
+    &__arrow {
+      display: none;
     }
+  }
+
+  &.is-light {
+    border: 1px solid rgb(255 255 255 / 0.1);
   }
 }

@@ -4,7 +4,6 @@
 @use '@@/assets/styles/resources/mixins' as *;
 
 .el-form {
-
   .el-form-item {
     display: block;
     justify-content: flex-start;
@@ -15,28 +14,27 @@
       min-height: 50px;
     }
 
-    &__content &.input-question {
-      width: 500px;
-      height: 50px;
-    }
-
     &__label {
-      padding: 0 0 14px 0;
       width: 211px;
-      justify-content: flex-start;
       align-items: flex-end;
+      justify-content: flex-start;
       font-weight: 300;
       font-size: 15px;
       line-height: 18px;
       letter-spacing: 0.01em;
+      padding: 0 0 14px;
+    }
+
+    &__content &.input-question {
+      width: 500px;
+      height: 50px;
     }
   }
 
   .el-input {
-
     &__wrapper {
-      padding: 16px;
       border-radius: 10px;
+      padding: 16px;
 
       &.is-focus {
         box-shadow: 0 0 0 1px $color--primary;

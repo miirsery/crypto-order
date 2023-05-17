@@ -2,20 +2,20 @@
   <footer class="base-footer">
     <div class="base-footer__header">
       <div class="mb-24 d-f ai-c">
-        <h2 class="mr-48">Connect to us in Telegram</h2>
+        <h2 class="mr-48">Connect to us <span class="color-primary">in Telegram</span></h2>
         <link-button to="#" outline />
       </div>
       <div class="base-footer__header-text">Stay informed. News, Promo, Level updates etc.</div>
     </div>
+
     <div class="base-footer__main">
       <div class="d-f ai-c jc-sb py-32">
         <base-icon name="logo-2" width="178" height="30" />
 
         <div class="d-f ai-c">
-          <p class="base-footer__text">How it works?</p>
-          <p class="base-footer__text">
-            <nuxt-link :to="{ path: '/support-page' }">Support</nuxt-link>
-          </p>
+          <nuxt-link class="base-footer__text mr-48" :to="ROUTE_PATHS.HowWorks">How it works?</nuxt-link>
+          <!--          TODO: Добавить ссылку-->
+          <p class="base-footer__text">Support</p>
         </div>
 
         <div class="d-f ai-c">
@@ -28,7 +28,7 @@
       <div class="divider" />
 
       <div class="d-f ai-c jc-sb py-48">
-        <div>All rights reserved ©2023</div>
+        <div class="base-footer__text">All rights reserved ©2023</div>
 
         <div class="d-f ai-c">
           <p class="base-footer__text mr-24">Support Telegram Bot</p>
@@ -38,6 +38,10 @@
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import { ROUTE_PATHS } from '~/components/shared/constants'
+</script>
 
 <style lang="scss" scoped>
 .base-footer {
@@ -63,6 +67,11 @@
     }
   }
 
+  &__main {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
   &__connect-button {
     padding: 14px 30px;
     margin-right: 24px;
@@ -75,7 +84,15 @@
   &__text {
     @include font(16px, 20px, 500);
 
-    color: $color--gray-1;
+    color: $color--gray-9;
   }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: radial-gradient(rgba($color--white, 1), rgba($color--white, 0));
+  background-color: none;
+  opacity: 0.1;
 }
 </style>

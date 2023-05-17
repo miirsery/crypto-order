@@ -1,8 +1,10 @@
 <template>
   <div class="home-page">
-    <section class="mb-200 mb-xs-20">
+    <section class="mb-200 mb-xs-20 p-r">
       <hero-info />
       <hero-stats />
+
+      <base-icon name="hero-blocks" />
     </section>
 
     <section class="mb-200 mb-xs-20">
@@ -31,13 +33,29 @@
           <h3>21</h3>
           <p>Seconds</p>
         </div>
+
+        <cover-text text="Take a profit in" angle="10" />
+
+        <base-icon name="line-3" />
       </div>
     </section>
 
     <section class="mb-200 mb-xs-20">
       <div class="home-page__subtitle">How to start?</div>
 
+      <div class="home-page__start-bg">
+        <img src="@@/assets/images/bg-2.png" />
+      </div>
+
+      <div class="home-page__start-bg-1">
+        <img src="@@/assets/images/bg-4.png" />
+      </div>
+
       <div class="home-page__start">
+        <cover-text text="let's start" angle="-10" />
+
+        <base-icon name="line-4" />
+
         <div class="home-page__start-block parallelogram">
           <h4>Connect wallet</h4>
           <p>connect your MetaMask wallet</p>
@@ -85,7 +103,7 @@
             <p>After 4 payouts, the next place is automatically purchased with payment to the next players.</p>
           </div>
 
-          <link-button outline :to="'#'">How it works?</link-button>
+          <link-button outline :to="ROUTE_PATHS.HowWorks">How it works?</link-button>
         </el-col>
       </el-row>
     </section>
@@ -93,20 +111,109 @@
     <section class="home-page__transactions">
       <h2 class="mb-48">Latest transactions</h2>
 
-      <transactions-table :transactions="transactionsData" />
+      <transactions-table :transactions="transactionsData" class="mb-48" />
 
-      <el-pagination small background layout="prev, pager, next" :total="50" class="mt-4" />
+      <el-pagination
+        background
+        :page-size="7"
+        :next-icon="nextIcon"
+        :prev-icon="prevIcon"
+        :pager-count="2"
+        layout="prev, pager, next"
+        :total="63"
+      />
     </section>
+
+    <div class="home-page__bg-1">
+      <img src="@@/assets/images/bg-1.png" />
+    </div>
+
+    <div class="home-page__bg">
+      <img src="@@/assets/images/bg-3.png" />
+    </div>
+
+    <div class="home-page__bg-3">
+      <img src="@@/assets/images/bg-5.png" />
+    </div>
+
+    <div class="home-page__bg-4">
+      <img src="@@/assets/images/bg-6.png" />
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { transactionsData } from '@/components/shared/constants'
+import { ROUTE_PATHS, transactionsData } from '~/components/shared/constants'
+import { BaseIcon } from '~/components/shared/ui'
+
+const nextIcon = shallowRef({
+  render() {
+    return h(BaseIcon, { name: 'arrow-right', class: 'icon-24' })
+  },
+})
+
+const prevIcon = shallowRef({
+  render() {
+    return h(BaseIcon, { name: 'arrow-left', class: 'icon-24' })
+  },
+})
 </script>
 
 <style lang="scss" scoped>
 .home-page {
+  .s-icon {
+    &--hero-blocks {
+      left: 50%;
+      bottom: -90px;
+      width: 100%;
+      height: 100%;
+      max-width: 1294px;
+      max-height: 747px;
+      position: absolute;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+  }
+
+  &__bg {
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    position: absolute;
+    z-index: -1;
+
+    &-1 {
+      top: 0;
+      left: 0;
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &-3 {
+      left: 0;
+      bottom: 60px;
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &-4 {
+      right: 0;
+      bottom: 0;
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
   &__beads {
+    max-width: 1062px;
+    margin: 0 auto;
     margin-bottom: 200px;
 
     p {
@@ -119,7 +226,8 @@ import { transactionsData } from '@/components/shared/constants'
       width: 510px;
       height: 589px;
       border-radius: 15px;
-      background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 100%), #191c2e;
+      background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 100%),
+        $color--background-2;
     }
 
     @include responsive(xs) {
@@ -137,10 +245,24 @@ import { transactionsData } from '@/components/shared/constants'
 
   &__timer {
     max-width: 908px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+
+    .base-icon {
+      top: -195px;
+      right: -50px;
+      width: 260px;
+      height: 171px;
+      position: absolute;
+    }
+
+    .cover-text {
+      top: -12px;
+      right: -55px;
+    }
 
     &-colon {
       @include font(48px, 58px, 600);
@@ -205,6 +327,37 @@ import { transactionsData } from '@/components/shared/constants'
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &-bg {
+      top: 470px;
+      left: 0;
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+
+      &-1 {
+        top: 760px;
+        right: 0;
+        width: auto;
+        height: auto;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+
+    .cover-text {
+      top: -15px;
+      left: -15px;
+    }
+
+    .base-icon {
+      top: -100px;
+      left: 100px;
+      width: 247px;
+      height: 58px;
+      position: absolute;
+    }
 
     h4 {
       @include font(24px, 29px, 700);

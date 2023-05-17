@@ -57,7 +57,7 @@ export default defineNuxtConfig({
     '@@': fileURLToPath(new URL('./', import.meta.url)),
     '~~': fileURLToPath(new URL('./', import.meta.url)),
   },
-  plugins: [{ src: '@/plugins/elementPlus' }],
+  plugins: [{ src: '@/plugins/elementPlus' }, { src: '@/plugins/screenVariables' }],
   dir: {
     plugins: './src/plugins',
     layouts: './src/layouts',

@@ -9,15 +9,17 @@ $color--gray-4: #b9b9b9;
 $color--gray-5: #e4e4e4;
 $color--gray-6: #c3c3c3;
 $color--gray-7: #878787;
-$color--gray-8: #4c4d4f;
-$color--gray-9: #afafaf;
-
+$color--gray-8: #858585;
+$color--gray-9: #808080;
+$color--gray-10: #4c4d4f;
+$color--gray-11: #afafaf;
 $color--background: #141627;
-$color--background-1: #191C2E;
+$color--background-2: #191c2e;
 
 $colors: (
   ('white', $color--white),
   ('primary', $color--primary),
   ('gray-7', $color--gray-7),
+  ('gray-8', $color--gray-8),
   ('background', $color--background),
 )

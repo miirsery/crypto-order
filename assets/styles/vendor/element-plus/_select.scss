@@ -2,23 +2,23 @@
 @use '@@/assets/styles/resources/mixins' as *;
 
 .el-select {
+  --el-color-primary: #745bd7;
+  --el-scrollbar-bg-color: var(--el-color-primary);
+  --el-select-border-color-hover: $color--gray;
+
   border: 1px solid $color--gray;
   border-radius: 35px;
   color: $color--gray;
   background-color: transparent;
 
   &.select-language {
-    .el-input {
-      &__suffix {
-        .el-icon {
-          width: 8px;
-          height: 13px;
-        }
-      }
+    width: 82px;
 
+    .el-input {
       &__wrapper {
         border: none;
         box-shadow: none;
+        padding: 12px 24px;
 
         &.is-focus {
           border: none;
@@ -26,10 +26,36 @@
         }
       }
 
+      &__inner {
+        @include font(16px, 20px, 400);
+
+        color: $color--gray;
+      }
+
+      &__suffix {
+      align-items: center;
+
+       &-inner {
+         width: 8px;
+         height: 7px;
+
+         > :first-child {
+           margin-left: 5px;
+         }
+       }
+
+        svg {
+          width: 8px;
+          height: 7px;
+        }
+      }
+
       &.is-focus {
         .el-input {
           &__wrapper {
+            height: 45px;
             border: none;
+            border-radius: 22px;
             box-shadow: none !important;
           }
         }
