@@ -22,12 +22,12 @@
 
       <div class="divider" />
 
-      <div class="d-f ai-c jc-sb py-48 fd-xs-c ai-xs-fs px-xs-22">
+      <div class="base-footer__main-text-block">
         <div class="base-footer__text mb-xs-24">All rights reserved ©2023</div>
 
-        <div class="d-f ai-c fd-xs-c ai-xs-fs">
+        <div class="base-footer__main-text-block__bottom">
           <p class="base-footer__text mr-24 mr-xs-0 mb-xs-24">Support Telegram Bot</p>
-          <p class="base-footer__text">Privace Policy</p>
+          <p class="base-footer__text">Private Policy</p>
         </div>
       </div>
     </div>
@@ -57,6 +57,29 @@ const screen = useScreen()
         flex-direction: column;
         align-items: flex-start;
         padding: 0 22px;
+      }
+    }
+
+    &-text-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 48px 0;
+
+      &-bottom {
+        display: flex;
+        align-items: center;
+
+        @include responsive(xs) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @include responsive(xs) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 0;
       }
     }
   }

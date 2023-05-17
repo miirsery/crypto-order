@@ -53,10 +53,6 @@ const handleBlur = (): void => {
 <style lang="scss" scoped>
 .how-works-sidebar-mobile {
   width: 100%;
-
-  @include responsive(xs) {
-    margin-bottom: 32px;
-  }
 }
 
 .select-content {

@@ -3,7 +3,7 @@
     <div class="divider" />
 
     <el-row :gutter="screen.isMobile ? 0 : 24">
-      <el-col :xs="24" :sm="24" :md="7">
+      <el-col :xs="24" :sm="24" :md="7" class="mb-32 mb-md-0">
         <client-only>
           <how-works-sidebar v-if="!screen.isMobileOrTablet" />
           <how-works-sidebar-mobile v-else />
