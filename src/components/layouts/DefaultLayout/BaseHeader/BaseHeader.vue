@@ -15,12 +15,14 @@
         </div>
       </div>
 
-      <div v-if="isMobile" class="burger">
-        <input id="menuToggle" v-model="isBurgerActive" class="burger__toggle" type="checkbox" />
-        <label class="burger__menu-btn" for="menuToggle">
-          <span />
-        </label>
-      </div>
+      <client-only>
+        <div v-if="isMobile" class="burger">
+          <input id="menuToggle" v-model="isBurgerActive" class="burger__toggle" type="checkbox" />
+          <label class="burger__menu-btn" for="menuToggle">
+            <span />
+          </label>
+        </div>
+      </client-only>
     </header>
 
     <client-only>
