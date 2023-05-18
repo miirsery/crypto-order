@@ -102,18 +102,18 @@ const supportFormModel = reactive({
 const rules = reactive<FormRules>({
   name: [{ required: true, message: 'Fill in the field', trigger: 'blur' }],
   email: [
-    { required: true, message: 'Fill in the field', trigger: ['blur'] },
-    { type: 'email', message: 'Not valid email', trigger: ['blur'] },
+    { required: true, message: 'Fill in the field', trigger: 'blur' },
+    { type: 'email', message: 'Not valid email', trigger: 'blur' },
   ],
   question: [{ required: true, message: 'Fill in the field', trigger: 'blur' }],
 })
 
 const handleFormSubmit = (): void => {
-  if (supportFormInstance.value) {
-    supportFormInstance.value.validate(async (valid) => {
-      //TODO: Интеграция.
-    })
-  }
+  if (!supportFormInstance.value) return
+
+  supportFormInstance.value.validate(async (valid) => {
+    //TODO: Интеграция.
+  })
 }
 </script>
 
