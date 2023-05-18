@@ -1,0 +1,22 @@
+@use '@@/assets/styles/resources/variables' as *;
+@use '@@/assets/styles/resources/mixins' as *;
+
+.personal-account {
+  .el-input {
+    &__wrapper {
+      outline: none !important;
+      border: 1px solid rgba($color--white, 0.2) !important;
+      border-radius: 10px !important;
+      box-shadow: none !important;
+      padding: 0 10px !important;
+    }
+
+    &__inner {
+      @include font(15px, 18px, 400);
+
+      letter-spacing: 0.01em;
+      text-align: center;
+      color: $color--white;
+    }
+  }
+}

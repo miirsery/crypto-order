@@ -129,7 +129,7 @@ import { ROUTE_PATHS } from '~/components/shared/constants'
   position: absolute;
   border: 1px solid rgba($color--white, 0.2);
   border-radius: 10px;
-  background: $color--background;
+  background-color: $color--background;
   transform: rotate(1.9deg);
   padding: 17px 20px;
 
@@ -178,7 +178,7 @@ import { ROUTE_PATHS } from '~/components/shared/constants'
   position: absolute;
   border: 1px solid rgba($color--white, 0.2);
   border-radius: 10px;
-  background: $color--background;
+  background-color: $color--background;
   transform: rotate(-3.01deg);
   padding: 19px 24px;
 
