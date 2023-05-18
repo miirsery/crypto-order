@@ -1,15 +1,17 @@
 @import 'sizes';
 
 // breakpoints
-
+$breakpoint--xs-small: 360px;
 $breakpoint--sm: 768px;
 $breakpoint--md: 992px;
 $breakpoint--lg: 1200px;
 
 $breakpoints: (
+  // мини мобилки
+  xs-small: '(max-width: #{$breakpoint--xs-small - 1px})',
   // мобилка
   xs: '(max-width: #{$breakpoint--sm - 1px})',
-  // Планшеты
+  // планшеты
   sm: '(min-width: #{$breakpoint--sm})',
   // ноутбуки
   md: '(min-width: #{$breakpoint--md})',

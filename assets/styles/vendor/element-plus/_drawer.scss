@@ -1,0 +1,16 @@
+.el-drawer {
+  &.base-header {
+    &__drawer {
+      top: auto !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      height: calc(100vh - 150px) !important;
+      box-shadow: none;
+      background-color: $color--background;
+    }
+  }
+}
+
+.el-overlay {
+  background-color: transparent !important;
+}

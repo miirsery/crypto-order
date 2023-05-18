@@ -121,9 +121,11 @@ const handleFormSubmit = (): void => {
 .support {
   display: flex;
   justify-content: space-between;
+  margin-top: 80px;
   margin-bottom: 112px;
 
   @include responsive(xs) {
+    margin-top: 28px;
     margin-bottom: 60px;
   }
 }

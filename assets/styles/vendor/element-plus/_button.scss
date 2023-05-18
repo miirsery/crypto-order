@@ -4,6 +4,8 @@
 @use '@@/assets/styles/resources/mixins' as *;
 
 .el-button {
+  --el-button-active-bg-color: #745bd7;
+
   height: auto !important;
   outline: none !important;
   border: none !important;
@@ -32,23 +34,12 @@
   }
 
   &.el-button--primary {
+    @include font(14px, 17px, 500);
+
     background-color: $color--primary !important;
 
     &:hover {
       background-color: color.adjust($color--primary, $hue: 5) !important;
-    }
-
-    &:active {
-      background-color: color.adjust($color--primary, $hue: 5);
-    }
-
-    &.is-disabled {
-      background-color: $color--primary;
-
-      &:hover {
-        background-color: color.adjust($color--primary, $hue: 5);
-        cursor: default;
-      }
     }
   }
 }
