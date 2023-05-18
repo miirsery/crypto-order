@@ -1,43 +1,43 @@
 <template>
-  <section class="support mb-112 mb-xs-60 d-f">
+  <section class="support">
     <div class="support-write">
       <h3 class="support-write__title">Write to us</h3>
-      <div class="support-page__form">
+      <div class="support-write__form">
         <el-form
           ref="supportFormInstance"
-          :model="supportFormModel"
+          class="support-form"
           hide-required-asterisk
+          :model="supportFormModel"
           :rules="rules"
-          class="supportFormModel"
         >
-          <div class="support-page__form-identifier">
+          <div class="support-write__form-inputs">
             <el-form-item label="Your name" prop="name">
               <el-input v-model="supportFormModel.name" />
             </el-form-item>
             <el-form-item label="E-mail" prop="email">
-              <el-input v-model="supportFormModel.email" prop="email" type="email" />
+              <el-input v-model="supportFormModel.email" type="email" />
             </el-form-item>
           </div>
-          <div class="support-page__question">
-            <el-form-item label="Your question" prop="question">
-              <el-input
-                v-model="supportFormModel.question"
-                type="textarea"
-                rows="7"
-                class="input-question__scrollbar"
-                resize="none"
-              />
-            </el-form-item>
-          </div>
+          <el-form-item class="support-write__question" label="Your question" prop="question">
+            <el-input
+              v-model="supportFormModel.question"
+              type="textarea"
+              rows="7"
+              class="textarea-scrollbar"
+              resize="none"
+            />
+          </el-form-item>
           <el-form-item>
             <el-checkbox v-model="supportFormModel.agreePrivacyPolicy">
               I agree with the
-              <nuxt-link class="support-page__privacy-policy" :to="ROUTE_PATHS.PrivacyPolicy">Privacy Policy</nuxt-link>
+              <nuxt-link class="support-write__privacy-policy" :to="ROUTE_PATHS.PrivacyPolicy"
+                >Privacy Policy</nuxt-link
+              >
             </el-checkbox>
           </el-form-item>
           <el-form-item>
             <el-button
-              class="support-page__send-button"
+              class="support-write__send-button"
               type="primary"
               :disabled="!supportFormModel.agreePrivacyPolicy"
               @click="handleFormSubmit"
@@ -54,12 +54,14 @@
         <div class="support-contacts__item mb-32">
           <div class="support-contacts__item-main">
             <img class="support-contacts__item-image" src="@@/assets/images/Icon-VR.png" alt="support telegram bot" />
-            <div class="support-contacts__item-caption">
+            <div>
               <h4 class="support-contacts__item-title">Support Telegram Bot</h4>
               <span class="support-contacts__item-description">Write here if you have any problems</span>
             </div>
           </div>
-          <div class="support-contacts__button"><h4 class="support-contacts__button-text">GO</h4></div>
+          <div class="support-contacts__button">
+            <h4 class="support-contacts__button-text">GO</h4>
+          </div>
         </div>
         <div class="support-contacts__item">
           <div class="support-contacts__item-main">
@@ -68,7 +70,7 @@
               src="@@/assets/images/Icon-EmailVerification.png"
               alt="support telegram chat"
             />
-            <div class="support-contacts__item-caption">
+            <div>
               <h4 class="support-contacts__item-title">News Telegram Channel</h4>
               <span class="support-contacts__item-description">Updates, news and opening levels</span>
             </div>
@@ -101,7 +103,7 @@ const rules = reactive<FormRules>({
   name: [{ required: true, message: 'Fill in the field', trigger: 'blur' }],
   email: [
     { required: true, message: 'Fill in the field', trigger: ['blur'] },
-    { type: 'email', message: 'Not valid email', trigger: ['blur', 'change'] },
+    { type: 'email', message: 'Not valid email', trigger: ['blur'] },
   ],
   question: [{ required: true, message: 'Fill in the field', trigger: 'blur' }],
 })
@@ -119,6 +121,11 @@ const handleFormSubmit = (): void => {
 .support {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 112px;
+
+  @include responsive(xs) {
+    margin-bottom: 60px;
+  }
 }
 
 .support-write {
@@ -126,39 +133,36 @@ const handleFormSubmit = (): void => {
     margin-bottom: 48px;
   }
 
-  .support-page {
-    margin-top: 48px;
+  &__form {
+    width: 564px;
+    height: 494px;
+    border: 1px solid rgba($color--white, 0.2);
+    border-radius: 15px;
+    background-color: $color--background-2;
+    padding: 32px;
+    backdrop-filter: blur(4.5px);
+  }
 
-    &__form {
-      width: 564px;
-      height: 494px;
-      border: 1px solid rgba($color--white, 0.2);
-      border-radius: 15px;
-      background-color: $color--background-2;
-      padding: 32px;
-      backdrop-filter: blur(4.5px);
-    }
+  &__form-inputs {
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 47px;
+  }
 
-    &__form-identifier {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 47px;
-    }
+  &__question {
+    max-width: 500px;
+    max-height: 190px;
+    margin-bottom: 16.5px;
+  }
 
-    &__question {
-      width: 500px;
-      height: 190px;
-      margin-bottom: 16.5px;
-    }
+  &__privacy-policy {
+    border-bottom: 1px $color--primary solid;
+    color: $color--primary;
+  }
 
-    &__privacy-policy {
-      border-bottom: 1px $color--primary solid;
-      color: $color--primary;
-    }
-
-    &__send-button {
-      padding: 14px 232.5px;
-    }
+  &__send-button {
+    padding: 14px 232.5px;
   }
 }
 

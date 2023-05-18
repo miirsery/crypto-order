@@ -46,9 +46,8 @@
       background-color: $color--primary;
 
       &:hover {
-        background-image: none;
         background-color: color.adjust($color--primary, $hue: 5);
-        cursor: auto;
+        cursor: default;
       }
     }
   }
