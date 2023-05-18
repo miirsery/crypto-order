@@ -81,8 +81,8 @@
     </section>
 
     <section class="home-page__beads">
-      <el-row align="middle">
-        <el-col :xs="24" :span="12" class="home-page__beads-image-wrapper">
+      <el-row align="middle" :gutter="isMobile ? 0 : 24">
+        <el-col :xs="24" :span="12">
           <base-icon name="blocks" class="home-page__beads-image" />
         </el-col>
         <el-col :xs="24" :span="12">
@@ -147,6 +147,9 @@
 <script lang="ts" setup>
 import { ROUTE_PATHS, transactionsData } from '~/components/shared/constants'
 import { BaseIcon } from '~/components/shared/ui'
+import { useScreen } from '~/components/shared/lib/composables/useScreen'
+
+const { isMobile } = useScreen()
 
 const nextIcon = shallowRef({
   render() {
@@ -163,6 +166,14 @@ const prevIcon = shallowRef({
 
 <style lang="scss" scoped>
 .home-page {
+  padding: 0 10px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .s-icon {
     &--hero-blocks {
       left: 50%;
@@ -215,8 +226,7 @@ const prevIcon = shallowRef({
 
   &__beads {
     max-width: 1062px;
-    margin: 0 auto;
-    margin-bottom: 200px;
+    margin: 0 auto 200px;
 
     p {
       @include font(16px, 22px, 300);
@@ -259,11 +269,23 @@ const prevIcon = shallowRef({
       width: 260px;
       height: 171px;
       position: absolute;
+
+      @include responsive(md, $breakpoints-only-max) {
+        top: -155px;
+        right: 40px;
+        width: 190px;
+        height: 121px;
+      }
     }
 
     .cover-text {
       top: -12px;
       right: -55px;
+
+      @include responsive(md, $breakpoints-only-max) {
+        top: -22px;
+        right: 5px;
+      }
     }
 
     &-colon {
@@ -327,8 +349,10 @@ const prevIcon = shallowRef({
   &__start {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    row-gap: 20px;
 
     &-bg {
       top: 470px;
@@ -389,6 +413,14 @@ const prevIcon = shallowRef({
     }
 
     &-block {
+      &:not(:last-child) {
+        margin-right: 12px;
+
+        @include responsive(xs-small) {
+          margin-right: 0;
+        }
+      }
+
       &:last-child {
         &.parallelogram {
           display: flex;
@@ -402,6 +434,10 @@ const prevIcon = shallowRef({
             border-radius: 15px;
             background: linear-gradient(112.89deg, #745bd7 25.01%, #835bd7 50.94%, #9c64e3 72.88%, #9c64e3 72.88%);
             backdrop-filter: blur(4.5px);
+          }
+
+          @include responsive(md, $breakpoints-only-max) {
+            padding: 32px 35px;
           }
         }
       }
@@ -422,6 +458,10 @@ const prevIcon = shallowRef({
             rgb(91 94 153 / 0.31) 365.69%
           );
           backdrop-filter: blur(4.5px);
+        }
+
+        @include responsive(md, $breakpoints-only-max) {
+          padding: 32px 35px;
         }
       }
     }
