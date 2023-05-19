@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 type Props = {
   text: string
-  mode: 'info' | 'primary'
+  mode?: 'info' | 'primary'
 }
 
 const props = withDefaults(defineProps<Props>(), {

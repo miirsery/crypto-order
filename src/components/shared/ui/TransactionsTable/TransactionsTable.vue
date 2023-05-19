@@ -3,7 +3,7 @@
     <el-table :data="props.transactions" style="width: 100%">
       <el-table-column label="Transactions">
         <template #default="{ row }">
-          <span :style="{ color: generateColor(row.type) }">{{ row.type }}</span>
+          <span :style="{ color: generateColorByType(row.type) }">{{ row.type }}</span>
         </template>
       </el-table-column>
       <el-table-column label="ID">
@@ -36,22 +36,13 @@
 </template>
 
 <script lang="ts" setup>
+import { generateColorByType } from '~/components/shared/lib/utils'
+
 type Props = {
   transactions: any
 }
 
 const props = defineProps<Props>()
-
-const transactionTypesMap: Record<string, string> = {
-  'Game entry': '#97E59A',
-  'Beneficial payment': '#A8D5FF',
-  'Referral payout': '#FFA8D7',
-  'Your referrals': '#AC97FF',
-}
-
-const generateColor = (type: string): string => {
-  return transactionTypesMap[type]
-}
 </script>
 
 <style lang="scss" scoped>

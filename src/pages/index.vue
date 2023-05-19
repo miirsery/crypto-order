@@ -113,7 +113,13 @@
     <section class="home-page__transactions">
       <h2 class="mb-48">Latest transactions</h2>
 
-      <transactions-table :transactions="transactionsData" class="mb-48" />
+      <client-only>
+        <transactions-table v-if="!isMobileOrTablet" :transactions="transactionsData" class="mb-48" />
+
+        <div v-else class="home-page__transactions-mobile">
+          <transaction-card v-for="transaction in transactionsData" :key="transaction.id" :transaction="transaction" />
+        </div>
+      </client-only>
 
       <el-pagination
         background
@@ -147,6 +153,9 @@
 <script lang="ts" setup>
 import { ROUTE_PATHS, transactionsData } from '~/components/shared/constants'
 import { BaseIcon } from '~/components/shared/ui'
+import { useScreen } from '~/components/shared/lib/composables'
+
+const { isMobileOrTablet } = useScreen()
 
 const nextIcon = shallowRef({
   render() {
@@ -215,8 +224,7 @@ const prevIcon = shallowRef({
 
   &__beads {
     max-width: 1062px;
-    margin: 0 auto;
-    margin-bottom: 200px;
+    margin: 0 auto 200px;
 
     p {
       @include font(16px, 22px, 300);
