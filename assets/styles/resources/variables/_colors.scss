@@ -1,3 +1,7 @@
+:root {
+  --color--primary: #745bd7
+}
+
 $color--white: #fff;
 $color--primary: #745bd7;
 $color--primary-secondary: #9b78ff;
@@ -11,12 +15,16 @@ $color--gray-6: #c3c3c3;
 $color--gray-7: #878787;
 $color--gray-8: #858585;
 $color--gray-9: #808080;
+$color--gray-10: #afafaf;
+$color--gray-11: #9b9b9b;
 $color--background: #141627;
 $color--background-2: #191c2e;
+$color--background-3: #2c2f3f;
 
 $colors: (
   ('white', $color--white),
   ('primary', $color--primary),
+  ('gray-1', $color--gray-1),
   ('gray-7', $color--gray-7),
   ('gray-8', $color--gray-8),
   ('background', $color--background),

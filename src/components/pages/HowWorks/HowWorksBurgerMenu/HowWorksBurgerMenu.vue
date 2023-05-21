@@ -2,10 +2,12 @@
   <div class="how-works-burger-menu">
     <div>
       <div class="d-f fd-c ai-fs my-32 px-22">
-        <nuxt-link class="how-works-burger-menu__text mb-24" :to="{ path: ROUTE_PATHS.HowWorks }">
+        <nuxt-link class="how-works-burger-menu__text color-gray-1 mb-24" :to="{ path: ROUTE_PATHS.HowWorks }">
           How it works?
         </nuxt-link>
-        <nuxt-link class="how-works-burger-menu__text" :to="{ path: ROUTE_PATHS.SupportPage }">Support</nuxt-link>
+        <nuxt-link class="how-works-burger-menu__text color-gray-1" :to="{ path: ROUTE_PATHS.SupportPage }">
+          Support
+        </nuxt-link>
       </div>
 
       <div class="divider" />

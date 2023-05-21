@@ -15,8 +15,7 @@
   position: relative;
 
   &__content {
-    max-width: 1195px;
-    padding: 0 10px;
+    max-width: 1175px;
     margin: 0 auto;
   }
 }

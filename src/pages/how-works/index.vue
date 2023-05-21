@@ -80,7 +80,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useScreen } from '~/components/shared/lib/composables/useScreen'
+import { useScreen } from '~/components/shared/lib/composables'
 // eslint-disable-next-line max-len
 import HowWorksSidebarMobile from '~/components/pages/HowWorks/HowWorksSidebar/HowWorksSidebarMobile/HowWorksSidebarMobile.vue'
 
@@ -89,6 +89,7 @@ const { isMobile } = useScreen()
 
 <style lang="scss" scoped>
 .how-works {
+  padding: 0 10px;
   margin-bottom: 112px;
 
   &__bg {

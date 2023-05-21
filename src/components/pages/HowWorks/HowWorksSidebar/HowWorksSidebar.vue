@@ -40,7 +40,7 @@ const isActive = (sectionHash: string): boolean => {
   max-width: 265px;
   border: 1px solid rgba($color--white, 0.2);
   border-radius: 15px;
-  background: $color--background-2;
+  background-color: $color--background-2;
   backdrop-filter: blur(4.5px);
 
   &__connect-button {
@@ -77,7 +77,7 @@ const isActive = (sectionHash: string): boolean => {
         height: 27px;
         position: absolute;
         border-radius: 0 4px 4px 0;
-        background: $color--primary;
+        background-color: $color--primary;
         transform: translateY(-50%);
 
         @include responsive(md, $breakpoints-only-max) {
