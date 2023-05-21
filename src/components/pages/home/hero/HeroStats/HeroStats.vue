@@ -47,6 +47,10 @@
       backdrop-filter: blur(4.5px);
     }
   }
+
+  @include responsive(md, $breakpoints-only-max) {
+    padding: 20px 40px;
+  }
 }
 
 .divider {

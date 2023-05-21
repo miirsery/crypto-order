@@ -46,14 +46,14 @@ const { isMobile } = useScreen()
 <style lang="scss" scoped>
 .base-footer {
   &__main {
-    max-width: 1160px;
+    max-width: 1180px;
     margin: 0 auto;
 
     &-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 32px 0;
+      padding: 32px 10px;
 
       @include responsive(xs) {
         flex-direction: column;
@@ -66,9 +66,9 @@ const { isMobile } = useScreen()
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 48px 0;
+      padding: 48px 10px;
 
-      &-bottom {
+      &__bottom {
         display: flex;
         align-items: center;
 
