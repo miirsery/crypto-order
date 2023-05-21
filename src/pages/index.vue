@@ -172,6 +172,8 @@ const prevIcon = shallowRef({
 
 <style lang="scss" scoped>
 .home-page {
+  padding: 0 10px;
+
   .s-icon {
     &--hero-blocks {
       left: 50%;

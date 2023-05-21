@@ -89,6 +89,7 @@ const { isMobile } = useScreen()
 
 <style lang="scss" scoped>
 .how-works {
+  padding: 0 10px;
   margin-bottom: 112px;
 
   &__bg {
