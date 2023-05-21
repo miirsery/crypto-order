@@ -1,5 +1,5 @@
 <template>
-  <div class="cover-text parallelogram" :style="{ transform: rotateAngle }">
+  <div :class="coverTextClasses" :style="{ transform: rotateAngle }">
     {{ props.text }}
   </div>
 </template>
@@ -8,11 +8,15 @@
 type Props = {
   text: string
   angle: string | number
+  type?: 'primary' | 'secondary'
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  type: 'primary',
+})
 
 const rotateAngle = computed(() => `rotate(${props.angle}deg)`)
+const coverTextClasses = computed(() => ['cover-text', 'parallelogram', `cover-text--${props.type}`])
 </script>
 
 <style lang="scss" scoped>
@@ -29,6 +33,20 @@ const rotateAngle = computed(() => `rotate(${props.angle}deg)`)
       border-radius: 6px;
       background-color: $color--primary;
     }
+
+    &.cover-text--secondary {
+      color: $color--background;
+
+      &::before {
+        background-color: #f3ba2f;
+      }
+    }
+  }
+
+  @include responsive(xs) {
+    @include font(13px, 16px);
+
+    padding: 4px 13px;
   }
 }
 </style>

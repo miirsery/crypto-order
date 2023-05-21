@@ -8,6 +8,7 @@
 
         <div class="d-f ai-c">
           <client-only>
+            <!--            TODO: Сверстать выбор кошелька-->
             <el-select
               v-if="isWalletConnected"
               v-model="selectedContent"
@@ -86,8 +87,12 @@ watch(
   () => {
     if (isBurgerActive.value && document) {
       document.body.style.overflow = 'hidden'
+
+      document.documentElement.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
+
+      document.documentElement.style.overflow = 'auto'
     }
   }
 )
@@ -107,10 +112,13 @@ const handleBlur = (): void => {
     position: relative;
     padding: 32px 0;
 
+    @include responsive(md, $breakpoints-only-max) {
+      padding: 24px 22px;
+    }
+
     @include responsive(xs) {
       display: flex;
       justify-content: space-between;
-      padding: 24px 0;
     }
   }
 
