@@ -48,7 +48,32 @@ const playersAmount = ref(30)
 const referralsAmount = ref(40)
 </script>
 
-<style lang="scss" scoped src="@/pages/personal-account/PersonalAccount.scss">
+<style lang="scss" scoped>
+.personal-account {
+  &__title {
+    @include font(26px, 31px, 700);
+
+    letter-spacing: 0.01em;
+    margin-bottom: 32px;
+
+    @include responsive(xs) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__text {
+    @include font(16px, 19px, 500);
+
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    color: $color--gray-10;
+
+    @include responsive(xs) {
+      @include font(12px, 15px);
+    }
+  }
+}
+
 .calculator {
   border: 1px solid rgb(255 255 255 / 0.2);
   border-radius: 15px;

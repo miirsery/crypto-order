@@ -6,13 +6,15 @@
 
     <player-statistic />
 
+    <player-payout />
+
     <player-referral />
 
     <player-calculator />
   </div>
 </template>
 
-<style lang="scss" scoped src="@/pages/personal-account/PersonalAccount.scss">
+<style lang="scss" scoped>
 .personal-account {
   padding: 0 10px;
   margin-top: 80px;

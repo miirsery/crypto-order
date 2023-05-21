@@ -84,7 +84,7 @@ const handleActiveTabChange = (tabIndex: number): void => {
 }
 </script>
 
-<style lang="scss" scoped src="@/pages/personal-account/PersonalAccount.scss">
+<style lang="scss" scoped>
 .transactions {
   &__tabs {
     width: 100%;

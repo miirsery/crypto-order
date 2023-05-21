@@ -56,7 +56,7 @@
         <div class="personal-account__subtitle">
           Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов)
           участие в формировании систем массового участия. Таким образом постоянное информационно-пропагандистское
-          обеспечение нашей деятельности способствует подготовки/
+          обеспечение нашей деятельности способствует подготовки
         </div>
       </div>
     </div>
@@ -72,7 +72,40 @@ const payoutRange = ref<[number, number]>([361, 463])
 const paymentsAmount = ref(1_000)
 </script>
 
-<style lang="scss" scoped src="@/pages/personal-account/PersonalAccount.scss">
+<style lang="scss" scoped>
+.personal-account {
+  &__title {
+    @include font(26px, 31px, 700);
+
+    letter-spacing: 0.01em;
+    margin-bottom: 32px;
+
+    @include responsive(xs) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__subtitle {
+    @include font(14px, 17px, 400);
+
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: $color--gray-10;
+  }
+
+  &__text {
+    @include font(16px, 19px, 500);
+
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    color: $color--gray-10;
+
+    @include responsive(xs) {
+      @include font(12px, 15px);
+    }
+  }
+}
+
 .payout {
   width: 100%;
   height: 406px;
