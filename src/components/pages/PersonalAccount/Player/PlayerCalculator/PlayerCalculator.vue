@@ -18,7 +18,7 @@
           </div>
 
           <client-only>
-            <el-slider v-model="playersAmount" :max="200" />
+            <el-slider v-model="playersAmount" :max="200" tooltip-class="slider-tooltip" />
           </client-only>
         </div>
 
@@ -29,7 +29,7 @@
           </div>
 
           <client-only>
-            <el-slider v-model="referralsAmount" :max="200" />
+            <el-slider v-model="referralsAmount" :max="200" tooltip-class="slider-tooltip" />
           </client-only>
         </div>
       </div>

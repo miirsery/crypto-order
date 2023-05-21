@@ -15,7 +15,7 @@
       <div class="mt-32">
         <div class="payout__slider">
           <client-only>
-            <el-slider v-model="payoutRange" class="mb-14" range :min="0" :max="500" />
+            <el-slider v-model="payoutRange" class="mb-14" range :min="0" :max="500" tooltip-class="slider-tooltip" />
           </client-only>
         </div>
         <div class="personal-account__subtitle"> Point to the number and get detailed information. </div>
@@ -31,12 +31,14 @@
             <div class="personal-account__text color-white mb-18 mb-md-0">Payments for players</div>
             <div class="d-f ai-c w-100 jc-xs-sb">
               <div class="d-f ai-c jc-sb-sb w-100 jc-xs-sb">
-                <el-input
-                  v-if="isMobile"
-                  v-model.number="paymentsAmount"
-                  class="personal-account__amount"
-                  type="number"
-                />
+                <client-only>
+                  <el-input
+                    v-if="isMobile"
+                    v-model.number="paymentsAmount"
+                    class="payout__amount mobile"
+                    type="number"
+                  />
+                </client-only>
                 <div class="payout__will-paid">
                   <div class="personal-account__text">Will be paid:</div>
                   <base-tag class="ml-12 ml-md-28" mode="primary" text="$180" />
@@ -46,11 +48,10 @@
           </div>
           <div class="d-f ai-c">
             <client-only>
-              <el-slider v-model="payoutRange" range class="mr-14" :min="0" :max="500" />
-            </client-only>
+              <el-slider v-model="payoutRange" range class="mr-14" :min="0" :max="500" tooltip-class="slider-tooltip" />
 
-            <!-- TODO: Добавить ввод только числен на мозилке-->
-            <el-input v-if="!isMobile" v-model.number="paymentsAmount" class="personal-account__amount" type="number" />
+              <el-input v-if="!isMobile" v-model.number="paymentsAmount" class="payout__amount" type="number" />
+            </client-only>
           </div>
         </div>
         <div class="personal-account__subtitle">
@@ -131,6 +132,16 @@ const paymentsAmount = ref(1_000)
     background-color: $color--background-3;
     padding: 24px 42px;
     margin-bottom: 14px;
+  }
+
+  &__amount {
+    width: 131px;
+    height: 40px;
+
+    &.mobile {
+      width: 82px;
+      height: 36px;
+    }
   }
 
   .personal-account__text {
