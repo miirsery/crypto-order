@@ -53,7 +53,7 @@
 
     <client-only>
       <el-drawer v-model="isBurgerActive" class="base-header__drawer" :show-close="false">
-        <how-works-burger-menu />
+        <how-works-burger-menu @close="handleDrawerClose" />
       </el-drawer>
     </client-only>
   </div>
@@ -103,6 +103,10 @@ const handleFocus = (): void => {
 
 const handleBlur = (): void => {
   isFocus.value = false
+}
+
+const handleDrawerClose = (): void => {
+  isBurgerActive.value = false
 }
 </script>
 

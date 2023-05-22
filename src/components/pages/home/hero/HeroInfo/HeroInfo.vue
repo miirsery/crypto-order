@@ -204,7 +204,7 @@ const { isMobile } = useScreen()
   &__link {
     @include font(14px, 17px, 700);
 
-    text-decoration: underline;
+    border-bottom: 1px solid $color--white;
   }
 
   @include responsive(xs) {
