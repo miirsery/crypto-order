@@ -2,47 +2,54 @@
   <div class="home-page">
     <div class="divider" />
 
-    <section class="mb-200 mb-xs-20 p-r">
+    <section class="mb-60 mb-md-200 p-r">
       <hero-info />
+
       <hero-stats />
 
       <base-icon name="hero-blocks" />
     </section>
 
-    <section class="mb-200 mb-xs-20">
+    <section class="home-page__timer-section">
       <div class="home-page__subtitle">Game will start in:</div>
 
       <div class="home-page__timer">
-        <div class="home-page__timer-block parallelogram">
-          <h3>11</h3>
-          <p>Days</p>
-        </div>
-        <div class="home-page__timer-colon"> : </div>
+        <div class="home-page__timer-inner">
+          <div class="home-page__timer-block parallelogram">
+            <h3 class="home-page__timer-title">11</h3>
+            <p class="home-page__timer-subtitle">Days</p>
+          </div>
+          <div class="home-page__timer-colon"> : </div>
 
-        <div class="home-page__timer-block parallelogram">
-          <h3>09</h3>
-          <p>Hours</p>
-        </div>
-        <div class="home-page__timer-colon"> : </div>
-
-        <div class="home-page__timer-block parallelogram">
-          <h3>54</h3>
-          <p>Minutes</p>
-        </div>
-        <div class="home-page__timer-colon"> : </div>
-
-        <div class="home-page__timer-block parallelogram">
-          <h3>21</h3>
-          <p>Seconds</p>
+          <div class="home-page__timer-block parallelogram">
+            <h3 class="home-page__timer-title">09</h3>
+            <p class="home-page__timer-subtitle">Hours</p>
+          </div>
         </div>
 
-        <cover-text text="Take a profit in" angle="10" />
+        <div class="home-page__timer-colon home-page__timer-colon-middle"> : </div>
+
+        <div class="home-page__timer-inner">
+          <div class="home-page__timer-block parallelogram">
+            <h3 class="home-page__timer-title">54</h3>
+            <p class="home-page__timer-subtitle">Minutes</p>
+          </div>
+          <div class="home-page__timer-colon"> : </div>
+
+          <div class="home-page__timer-block parallelogram">
+            <h3 class="home-page__timer-title">21</h3>
+            <p class="home-page__timer-subtitle">Seconds</p>
+          </div>
+        </div>
+
+        <cover-text type="secondary" text="Take a profit in" angle="10" />
 
         <base-icon name="line-3" />
+        <base-icon name="line-3--mobile" />
       </div>
     </section>
 
-    <section class="mb-200 mb-xs-20">
+    <section class="mb-200 mb-xs-60">
       <div class="home-page__subtitle">How to start?</div>
 
       <div class="home-page__start-bg">
@@ -56,7 +63,8 @@
       <div class="home-page__start">
         <cover-text text="let's start" angle="-10" />
 
-        <base-icon name="line-4" />
+        <base-icon v-if="!isMobile" name="line-4" />
+        <base-icon v-else width="46" height="25" name="line-4--mobile" />
 
         <div class="home-page__start-block parallelogram">
           <h4>Connect wallet</h4>
@@ -82,11 +90,13 @@
 
     <section class="home-page__beads">
       <el-row align="middle" :gutter="isMobile ? 0 : 24">
-        <el-col :xs="24" :span="12">
+        <el-col :xs="24" :span="12" class="p-r mb-xs-32">
+          <cover-text text="Take a profit in" :angle="isMobile ? 6 : -10" />
+
           <base-icon name="blocks" class="home-page__beads-image" />
         </el-col>
-        <el-col :xs="24" :span="12">
-          <h2 class="mb-24"> Game <span class="color-primary">“Beads”</span> </h2>
+        <el-col :xs="24" :span="12" class="p-0 pl-sm-10">
+          <h2 class="mb-24"> Game <span class="color-orange">“Beads”</span> </h2>
           <div class="mb-48">
             <p>
               From the purchase of a place by a new player, paid: <br />
@@ -110,27 +120,11 @@
       </el-row>
     </section>
 
-    <section class="home-page__transactions">
-      <h2 class="mb-48">Latest transactions</h2>
-
-      <client-only>
-        <transactions-table v-if="!isMobileOrTablet" :transactions="transactionsData" class="mb-48" />
-
-        <div v-else class="home-page__transactions-mobile">
-          <transaction-card v-for="transaction in transactionsData" :key="transaction.id" :transaction="transaction" />
-        </div>
-      </client-only>
-
-      <el-pagination
-        background
-        :page-size="7"
-        :next-icon="nextIcon"
-        :prev-icon="prevIcon"
-        :pager-count="2"
-        layout="prev, pager, next"
-        :total="63"
-      />
-    </section>
+    <player-transactions class="transactions">
+      <template #title>
+        <h2 class="transactions__title">Your transactions</h2>
+      </template>
+    </player-transactions>
 
     <div class="home-page__bg-1">
       <img src="@@/assets/images/bg-1.png" />
@@ -155,24 +149,13 @@ import { ROUTE_PATHS, transactionsData } from '~/components/shared/constants'
 import { BaseIcon } from '~/components/shared/ui'
 import { useScreen } from '~/components/shared/lib/composables'
 
-const { isMobile, isMobileOrTablet } = useScreen()
-
-const nextIcon = shallowRef({
-  render() {
-    return h(BaseIcon, { name: 'arrow-right', class: 'icon-24' })
-  },
-})
-
-const prevIcon = shallowRef({
-  render() {
-    return h(BaseIcon, { name: 'arrow-left', class: 'icon-24' })
-  },
-})
+const { isMobile } = useScreen()
 </script>
 
 <style lang="scss" scoped>
 .home-page {
   padding: 0 10px;
+  margin-bottom: 200px;
 
   img {
     width: 100%;
@@ -232,7 +215,32 @@ const prevIcon = shallowRef({
 
   &__beads {
     max-width: 1062px;
+    position: relative;
     margin: 0 auto 200px;
+
+    .cover-text {
+      top: -17px;
+      right: -30px;
+      z-index: 2;
+
+      @include responsive(xs) {
+        top: -7px;
+        right: 5px;
+        padding: 9px 15px;
+      }
+    }
+
+    .link-button {
+      width: 235px;
+    }
+
+    h2 {
+      @include responsive(xs) {
+        @include font(28px, 33px, 700);
+
+        margin-bottom: 14px !important;
+      }
+    }
 
     p {
       @include font(16px, 22px, 300);
@@ -241,11 +249,20 @@ const prevIcon = shallowRef({
     }
 
     &-image {
-      width: 510px;
-      height: 589px;
+      width: 100%;
+      height: 100%;
+      max-width: 510px;
+      max-height: 589px;
       border-radius: 15px;
       background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 100%),
         $color--background-2;
+
+      @include responsive(xs) {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
 
     @include responsive(xs) {
@@ -259,14 +276,21 @@ const prevIcon = shallowRef({
     letter-spacing: 0.01em;
     text-align: center;
     margin-bottom: 70px;
+
+    @include responsive(sm, $breakpoints-only-max) {
+      @include font(28px, 34px, 700);
+
+      margin-bottom: 24px;
+    }
   }
 
   &__timer {
     max-width: 908px;
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0 auto;
 
     .base-icon {
@@ -275,6 +299,10 @@ const prevIcon = shallowRef({
       width: 260px;
       height: 171px;
       position: absolute;
+
+      &.s-icon--line-3--mobile {
+        display: none;
+      }
 
       @include responsive(md, $breakpoints-only-max) {
         top: -155px;
@@ -292,6 +320,53 @@ const prevIcon = shallowRef({
         top: -22px;
         right: 5px;
       }
+
+      @media screen and (width <= 842px) {
+        top: -62px;
+        right: 50%;
+        transform: rotate(0deg) translateX(50%) !important;
+      }
+    }
+
+    &-section {
+      margin-bottom: 200px;
+
+      @media screen and (width <= 842px) {
+        position: relative;
+
+        .home-page__subtitle {
+          margin-bottom: 80px;
+        }
+      }
+
+      @include responsive(xs) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-title {
+      @include font(60px, 72px, 600);
+
+      margin-bottom: 5px;
+
+      @media screen and (width <= 842px) {
+        @include font(34px, 41px, 600);
+      }
+    }
+
+    &-subtitle {
+      @include font(16px, 19px, 300);
+
+      color: $color--gray-3;
+
+      @media screen and (width <= 842px) {
+        @include font(14px, 17px, 300);
+      }
+    }
+
+    &-inner {
+      display: flex;
+      align-items: center;
     }
 
     &-colon {
@@ -308,18 +383,6 @@ const prevIcon = shallowRef({
       text-align: center;
       padding: 20px 30px;
 
-      h3 {
-        @include font(60px, 72px, 600);
-
-        margin-bottom: 5px;
-      }
-
-      p {
-        @include font(16px, 20px, 300);
-
-        color: $color--gray-3;
-      }
-
       &.parallelogram {
         display: flex;
         flex-direction: column;
@@ -335,6 +398,49 @@ const prevIcon = shallowRef({
             rgb(91 94 153 / 0.31) 365.69%
           );
           backdrop-filter: blur(4.5px);
+
+          @media screen and (width <= 842px) {
+            border-radius: 10px;
+            transform: skew(-4deg);
+          }
+        }
+      }
+
+      @media screen and (width <= 842px) {
+        padding: 18px;
+      }
+    }
+
+    @media screen and (width <= 842px) {
+      justify-content: center;
+
+      .s-icon--line-3 {
+        display: none;
+      }
+
+      .s-icon--line-3--mobile {
+        top: -70px !important;
+        right: calc(50% - 110px) !important;
+        width: 38px !important;
+        height: 28px !important;
+        position: absolute;
+        display: block !important;
+      }
+
+      .home-page {
+        &__timer {
+          &-colon-middle {
+            display: none;
+          }
+
+          &-inner {
+            width: 100%;
+            justify-content: center;
+
+            &:first-child {
+              margin-bottom: 10px;
+            }
+          }
         }
       }
     }
@@ -381,6 +487,12 @@ const prevIcon = shallowRef({
     .cover-text {
       top: -15px;
       left: -15px;
+
+      @include responsive(xs) {
+        top: 5px;
+        left: 11px;
+        padding: 6px 16px;
+      }
     }
 
     .base-icon {
@@ -389,6 +501,13 @@ const prevIcon = shallowRef({
       width: 247px;
       height: 58px;
       position: absolute;
+
+      @include responsive(xs) {
+        top: -30px;
+        left: 30px;
+        width: 46px;
+        height: 25px;
+      }
     }
 
     h4 {
@@ -441,6 +560,19 @@ const prevIcon = shallowRef({
             background: linear-gradient(112.89deg, #745bd7 25.01%, #835bd7 50.94%, #9c64e3 72.88%, #9c64e3 72.88%);
             backdrop-filter: blur(4.5px);
           }
+
+          @include responsive(md, $breakpoints-only-max) {
+            padding: 32px 35px;
+          }
+
+          @include responsive(xs) {
+            width: 100%;
+
+            &::before {
+              border-radius: 10px;
+              transform: skew(-2deg);
+            }
+          }
         }
       }
 
@@ -465,8 +597,30 @@ const prevIcon = shallowRef({
         @include responsive(md, $breakpoints-only-max) {
           padding: 32px 35px;
         }
+
+        @include responsive(xs) {
+          width: 100%;
+          margin: 0;
+
+          &::before {
+            border-radius: 10px;
+            transform: skew(-2deg);
+          }
+        }
       }
     }
+
+    @include responsive(md, $breakpoints-only-max) {
+      padding: 20px;
+    }
+
+    @include responsive(xs) {
+      padding: 0;
+    }
+  }
+
+  @include responsive(xs) {
+    margin-bottom: 60px;
   }
 }
 
@@ -476,5 +630,25 @@ const prevIcon = shallowRef({
   background: transparent radial-gradient(rgba($color--white, 1), rgba($color--white, 0));
   margin-bottom: 112px;
   opacity: 0.1;
+
+  @include responsive(sm, $breakpoints-only-max) {
+    margin-bottom: 60px;
+  }
+}
+
+.transactions {
+  &__title {
+    @include font(50px, 60px, 700);
+
+    letter-spacing: 0.01em;
+    text-align: center;
+    margin-bottom: 48px;
+
+    @include responsive(xs) {
+      @include font(28px, 33px, 700);
+
+      margin-bottom: 24px;
+    }
+  }
 }
 </style>

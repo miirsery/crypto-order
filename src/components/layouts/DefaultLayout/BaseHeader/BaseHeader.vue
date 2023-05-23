@@ -8,6 +8,7 @@
 
         <div class="d-f ai-c">
           <client-only>
+            <!--            TODO: Сверстать выбор кошелька-->
             <el-select
               v-if="isWalletConnected"
               v-model="selectedContent"
@@ -52,7 +53,7 @@
 
     <client-only>
       <el-drawer v-model="isBurgerActive" class="base-header__drawer" :show-close="false">
-        <how-works-burger-menu />
+        <how-works-burger-menu @close="handleDrawerClose" />
       </el-drawer>
     </client-only>
   </div>
@@ -86,8 +87,12 @@ watch(
   () => {
     if (isBurgerActive.value && document) {
       document.body.style.overflow = 'hidden'
+
+      document.documentElement.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
+
+      document.documentElement.style.overflow = 'auto'
     }
   }
 )
@@ -99,6 +104,10 @@ const handleFocus = (): void => {
 const handleBlur = (): void => {
   isFocus.value = false
 }
+
+const handleDrawerClose = (): void => {
+  isBurgerActive.value = false
+}
 </script>
 
 <style lang="scss" scoped>
@@ -107,10 +116,13 @@ const handleBlur = (): void => {
     position: relative;
     padding: 32px 0;
 
+    @include responsive(md, $breakpoints-only-max) {
+      padding: 24px 22px;
+    }
+
     @include responsive(xs) {
       display: flex;
       justify-content: space-between;
-      padding: 24px 0;
     }
   }
 

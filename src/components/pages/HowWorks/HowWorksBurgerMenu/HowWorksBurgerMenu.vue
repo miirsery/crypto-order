@@ -2,10 +2,18 @@
   <div class="how-works-burger-menu">
     <div>
       <div class="d-f fd-c ai-fs my-32 px-22">
-        <nuxt-link class="how-works-burger-menu__text color-gray-1 mb-24" :to="{ path: ROUTE_PATHS.HowWorks }">
+        <nuxt-link
+          class="how-works-burger-menu__text color-gray-1 mb-24"
+          :to="{ path: ROUTE_PATHS.HowWorks }"
+          @click="handleDrawerClose"
+        >
           How it works?
         </nuxt-link>
-        <nuxt-link class="how-works-burger-menu__text color-gray-1" :to="{ path: ROUTE_PATHS.SupportPage }">
+        <nuxt-link
+          class="how-works-burger-menu__text color-gray-1"
+          :to="{ path: ROUTE_PATHS.SupportPage }"
+          @click="handleDrawerClose"
+        >
           Support
         </nuxt-link>
       </div>
@@ -28,6 +36,16 @@
 
 <script setup lang="ts">
 import { ROUTE_PATHS } from '~/components/shared/constants'
+
+type Emits = {
+  (e: 'close'): void
+}
+
+const emits = defineEmits<Emits>()
+
+const handleDrawerClose = (): void => {
+  emits('close')
+}
 </script>
 
 <style lang="scss" scoped>

@@ -4,7 +4,9 @@
 
     <div class="base-footer__main">
       <div class="base-footer__main-content">
-        <base-icon :name="isMobile ? 'logo' : 'logo-2'" width="178" height="30" class="mt-xs-24 mb-xs-42" />
+        <client-only>
+          <base-icon :name="isMobile ? 'logo' : 'logo-2'" width="178" height="30" class="mt-xs-24 mb-xs-42" />
+        </client-only>
 
         <div class="d-f ai-c fd-xs-c ai-xs-fs mb-xs-48">
           <nuxt-link class="base-footer__text mr-48 mr-xs-0 mb-xs-24 color-gray-1" :to="{ path: ROUTE_PATHS.HowWorks }">
