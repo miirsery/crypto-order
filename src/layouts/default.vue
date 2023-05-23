@@ -11,13 +11,21 @@
     <client-only>
       <el-dialog
         v-model="isReferralDialogVisible"
-        :close-icon="closeIcon"
         center
+        :show-close="false"
         :fullscreen="isMobile"
         class="referral-dialog"
         modal-class="referral-dialog__modal"
       >
         <h3 class="referral-dialog__title">Внимание!</h3>
+
+        <base-icon
+          name="close"
+          width="30"
+          height="30"
+          class="referral-dialog__close"
+          @click="handleReferralDialogClose"
+        />
 
         <div class="referral-dialog__text">
           Вы зашли без реферальной ссылки. Пожалуйста, попросите реферальную ссылку у человека, который рассказал вам об
@@ -28,14 +36,13 @@
 
         <el-button class="referral-dialog__button" type="primary" @click="handleReferralDialogClose">Окей</el-button>
 
-        <div class="referral-dialog__default"> Использовать ссылку по умолчанию </div>
+        <div class="referral-dialog__default" @click="handleDefaultLinkUse"> Использовать ссылку по умолчанию </div>
       </el-dialog>
     </client-only>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { BaseIcon } from '~/components/shared/ui'
 import { useScreen, useWallet } from '~/components/shared/lib/composables'
 
 const route = useRoute()
@@ -43,12 +50,6 @@ const route = useRoute()
 const { isMobile } = useScreen()
 
 const { isWalletConnected } = useWallet()
-
-const closeIcon = shallowRef({
-  render() {
-    return h(BaseIcon, { name: 'close', width: 32, height: 32 })
-  },
-})
 
 const isReferralDialogHidden = ref(false)
 const isReferralDialogVisible = computed(() => {
@@ -82,6 +83,12 @@ const handleReferralDialogClose = (): void => {
   sessionStorage.setItem('is-dialog-shown', 'true')
 
   isReferralDialogHidden.value = true
+}
+
+const handleDefaultLinkUse = (): void => {
+  // TODO: чот должно делать
+
+  handleReferralDialogClose()
 }
 </script>
 
@@ -126,6 +133,14 @@ const handleReferralDialogClose = (): void => {
     text-align: center;
     color: $color--white;
     margin: 0 auto 48px;
+  }
+
+  &__close {
+    top: 0;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    margin: 32px;
   }
 
   &__button {
