@@ -49,98 +49,82 @@
       </div>
     </section>
 
-    <!--    <section class="mb-200 mb-xs-20">-->
-    <!--      <div class="home-page__subtitle">How to start?</div>-->
+    <section class="mb-200 mb-xs-60">
+      <div class="home-page__subtitle">How to start?</div>
 
-    <!--      <div class="home-page__start-bg">-->
-    <!--        <img src="@@/assets/images/bg-2.png" />-->
-    <!--      </div>-->
+      <div class="home-page__start-bg">
+        <img src="@@/assets/images/bg-2.png" />
+      </div>
 
-    <!--      <div class="home-page__start-bg-1">-->
-    <!--        <img src="@@/assets/images/bg-4.png" />-->
-    <!--      </div>-->
+      <div class="home-page__start-bg-1">
+        <img src="@@/assets/images/bg-4.png" />
+      </div>
 
-    <!--      <div class="home-page__start">-->
-    <!--        <cover-text text="let's start" angle="-10" />-->
+      <div class="home-page__start">
+        <cover-text text="let's start" angle="-10" />
 
-    <!--        <base-icon name="line-4" />-->
+        <base-icon v-if="!isMobile" name="line-4" />
+        <base-icon v-else width="46" height="25" name="line-4--mobile" />
 
-    <!--        <div class="home-page__start-block parallelogram">-->
-    <!--          <h4>Connect wallet</h4>-->
-    <!--          <p>connect your MetaMask wallet</p>-->
-    <!--          <link-button to="#" underline>Login</link-button>-->
+        <div class="home-page__start-block parallelogram">
+          <h4>Connect wallet</h4>
+          <p>connect your MetaMask wallet</p>
+          <link-button to="#" underline>Login</link-button>
 
-    <!--          <div class="circle" />-->
-    <!--        </div>-->
-    <!--        <div class="home-page__start-block parallelogram">-->
-    <!--          <h4>JOIN THE GAME</h4>-->
-    <!--          <p>to get profit</p>-->
-    <!--          <link-button to="#" underline>Start now!</link-button>-->
+          <div class="circle" />
+        </div>
+        <div class="home-page__start-block parallelogram">
+          <h4>JOIN THE GAME</h4>
+          <p>to get profit</p>
+          <link-button to="#" underline>Start now!</link-button>
 
-    <!--          <div class="circle" />-->
-    <!--        </div>-->
-    <!--        <div class="home-page__start-block parallelogram">-->
-    <!--          <h4>Make a profit</h4>-->
-    <!--          <p>multiply using referral system</p>-->
-    <!--          <link-button to="#" underline>Join the game</link-button>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </section>-->
+          <div class="circle" />
+        </div>
+        <div class="home-page__start-block parallelogram">
+          <h4>Make a profit</h4>
+          <p>multiply using referral system</p>
+          <link-button to="#" underline>Join the game</link-button>
+        </div>
+      </div>
+    </section>
 
-    <!--    <section class="home-page__beads">-->
-    <!--      <el-row align="middle" :gutter="isMobile ? 0 : 24">-->
-    <!--        <el-col :xs="24" :span="12">-->
-    <!--          <base-icon name="blocks" class="home-page__beads-image" />-->
-    <!--        </el-col>-->
-    <!--        <el-col :xs="24" :span="12">-->
-    <!--          <h2 class="mb-24"> Game <span class="color-primary">“Beads”</span> </h2>-->
-    <!--          <div class="mb-48">-->
-    <!--            <p>-->
-    <!--              From the purchase of a place by a new player, paid: <br />-->
-    <!--              - 30% for the nearest three players waiting in line; <br />-->
-    <!--              - 7% on referral rewards; <br />-->
-    <!--              - 3% registration free.-->
-    <!--            </p>-->
-    <!--            <br />-->
-    <!--            <p> Each seat purchased entitles you to receive 4 payments of 30% each, for a total of 120%.</p>-->
-    <!--            <br />-->
-    <!--            <p>-->
-    <!--              From each payment
-    of 30%, a portion (25%) is set aside for the purchase of the next seat, and the-->
-    <!--              remaining 5% is paid as a reward.-->
-    <!--            </p>-->
-    <!--            <br />-->
-    <!--            <p>After 4 payouts,
-     the next place is automatically purchased with payment to the next players.</p>-->
-    <!--          </div>-->
+    <section class="home-page__beads">
+      <el-row align="middle" :gutter="isMobile ? 0 : 24">
+        <el-col :xs="24" :span="12" class="p-r mb-xs-32">
+          <cover-text text="Take a profit in" :angle="isMobile ? 6 : -10" />
 
-    <!--          <link-button outline :to="ROUTE_PATHS.HowWorks">How it works?</link-button>-->
-    <!--        </el-col>-->
-    <!--      </el-row>-->
-    <!--    </section>-->
+          <base-icon name="blocks" class="home-page__beads-image" />
+        </el-col>
+        <el-col :xs="24" :span="12" class="p-0 pl-sm-10">
+          <h2 class="mb-24"> Game <span class="color-orange">“Beads”</span> </h2>
+          <div class="mb-48">
+            <p>
+              From the purchase of a place by a new player, paid: <br />
+              - 30% for the nearest three players waiting in line; <br />
+              - 7% on referral rewards; <br />
+              - 3% registration free.
+            </p>
+            <br />
+            <p> Each seat purchased entitles you to receive 4 payments of 30% each, for a total of 120%.</p>
+            <br />
+            <p>
+              From each payment of 30%, a portion (25%) is set aside for the purchase of the next seat, and the
+              remaining 5% is paid as a reward.
+            </p>
+            <br />
+            <p>After 4 payouts, the next place is automatically purchased with payment to the next players.</p>
+          </div>
 
-    <!--    <section class="home-page__transactions">-->
-    <!--      <h2 class="mb-48">Latest transactions</h2>-->
+          <link-button outline :to="ROUTE_PATHS.HowWorks">How it works?</link-button>
+        </el-col>
+      </el-row>
+    </section>
 
-    <!--      <client-only>-->
-    <!--        <transactions-table v-if="!isMobileOrTablet" :transactions="transactionsData" class="mb-48" />-->
-
-    <!--        <div v-else class="home-page__transactions-mobile">-->
-    <!--          <transaction-card
-     v-for="transaction in transactionsData" :key="transaction.id" :transaction="transaction" />-->
-    <!--        </div>-->
-    <!--      </client-only>-->
-
-    <!--      <el-pagination-->
-    <!--        background-->
-    <!--        :page-size="7"-->
-    <!--        :next-icon="nextIcon"-->
-    <!--        :prev-icon="prevIcon"-->
-    <!--        :pager-count="2"-->
-    <!--        layout="prev, pager, next"-->
-    <!--        :total="63"-->
-    <!--      />-->
-    <!--    </section>-->
+    <player-transactions class="transactions">
+      <template #title>
+        <h2 class="transactions__title">Your transactions</h2>
+      </template>
+    </player-transactions>
 
     <div class="home-page__bg-1">
       <img src="@@/assets/images/bg-1.png" />
@@ -165,24 +149,13 @@ import { ROUTE_PATHS, transactionsData } from '~/components/shared/constants'
 import { BaseIcon } from '~/components/shared/ui'
 import { useScreen } from '~/components/shared/lib/composables'
 
-const { isMobile, isMobileOrTablet } = useScreen()
-
-const nextIcon = shallowRef({
-  render() {
-    return h(BaseIcon, { name: 'arrow-right', class: 'icon-24' })
-  },
-})
-
-const prevIcon = shallowRef({
-  render() {
-    return h(BaseIcon, { name: 'arrow-left', class: 'icon-24' })
-  },
-})
+const { isMobile } = useScreen()
 </script>
 
 <style lang="scss" scoped>
 .home-page {
   padding: 0 10px;
+  margin-bottom: 200px;
 
   img {
     width: 100%;
@@ -242,7 +215,32 @@ const prevIcon = shallowRef({
 
   &__beads {
     max-width: 1062px;
+    position: relative;
     margin: 0 auto 200px;
+
+    .cover-text {
+      top: -17px;
+      right: -30px;
+      z-index: 2;
+
+      @include responsive(xs) {
+        top: -7px;
+        right: 5px;
+        padding: 9px 15px;
+      }
+    }
+
+    .link-button {
+      width: 235px;
+    }
+
+    h2 {
+      @include responsive(xs) {
+        @include font(28px, 33px, 700);
+
+        margin-bottom: 14px !important;
+      }
+    }
 
     p {
       @include font(16px, 22px, 300);
@@ -251,11 +249,20 @@ const prevIcon = shallowRef({
     }
 
     &-image {
-      width: 510px;
-      height: 589px;
+      width: 100%;
+      height: 100%;
+      max-width: 510px;
+      max-height: 589px;
       border-radius: 15px;
       background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 100%),
         $color--background-2;
+
+      @include responsive(xs) {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
 
     @include responsive(xs) {
@@ -393,6 +400,7 @@ const prevIcon = shallowRef({
           backdrop-filter: blur(4.5px);
 
           @media screen and (width <= 842px) {
+            border-radius: 10px;
             transform: skew(-4deg);
           }
         }
@@ -479,6 +487,12 @@ const prevIcon = shallowRef({
     .cover-text {
       top: -15px;
       left: -15px;
+
+      @include responsive(xs) {
+        top: 5px;
+        left: 11px;
+        padding: 6px 16px;
+      }
     }
 
     .base-icon {
@@ -487,6 +501,13 @@ const prevIcon = shallowRef({
       width: 247px;
       height: 58px;
       position: absolute;
+
+      @include responsive(xs) {
+        top: -30px;
+        left: 30px;
+        width: 46px;
+        height: 25px;
+      }
     }
 
     h4 {
@@ -539,6 +560,19 @@ const prevIcon = shallowRef({
             background: linear-gradient(112.89deg, #745bd7 25.01%, #835bd7 50.94%, #9c64e3 72.88%, #9c64e3 72.88%);
             backdrop-filter: blur(4.5px);
           }
+
+          @include responsive(md, $breakpoints-only-max) {
+            padding: 32px 35px;
+          }
+
+          @include responsive(xs) {
+            width: 100%;
+
+            &::before {
+              border-radius: 10px;
+              transform: skew(-2deg);
+            }
+          }
         }
       }
 
@@ -563,8 +597,30 @@ const prevIcon = shallowRef({
         @include responsive(md, $breakpoints-only-max) {
           padding: 32px 35px;
         }
+
+        @include responsive(xs) {
+          width: 100%;
+          margin: 0;
+
+          &::before {
+            border-radius: 10px;
+            transform: skew(-2deg);
+          }
+        }
       }
     }
+
+    @include responsive(md, $breakpoints-only-max) {
+      padding: 20px;
+    }
+
+    @include responsive(xs) {
+      padding: 0;
+    }
+  }
+
+  @include responsive(xs) {
+    margin-bottom: 60px;
   }
 }
 
@@ -577,6 +633,22 @@ const prevIcon = shallowRef({
 
   @include responsive(sm, $breakpoints-only-max) {
     margin-bottom: 60px;
+  }
+}
+
+.transactions {
+  &__title {
+    @include font(50px, 60px, 700);
+
+    letter-spacing: 0.01em;
+    text-align: center;
+    margin-bottom: 48px;
+
+    @include responsive(xs) {
+      @include font(28px, 33px, 700);
+
+      margin-bottom: 24px;
+    }
   }
 }
 </style>

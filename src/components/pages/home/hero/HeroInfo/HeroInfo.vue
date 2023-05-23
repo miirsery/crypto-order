@@ -7,8 +7,10 @@
       <cover-text text="Take a profit in" angle="10" />
     </h1>
 
-    <base-icon v-if="!isMobile" name="line-1" width="140" height="38" />
-    <base-icon v-else name="line-1--mobile" width="15" height="54" />
+    <client-only>
+      <base-icon v-if="isMobile" name="line-1--mobile" width="15" height="54" />
+      <base-icon v-else name="line-1" width="140" height="38" />
+    </client-only>
 
     <base-icon name="line-2" width="133" height="96" />
 

@@ -1,7 +1,7 @@
 <template>
   <div class="connect-telegram">
     <div class="mb-24 d-f ai-c">
-      <h2 class="connect-telegram__title">Connect to us <span class="color-primary">in Telegram</span></h2>
+      <h2 class="connect-telegram__title">Connect to us <span class="color-orange">in Telegram</span></h2>
       <link-button to="#" outline />
     </div>
     <div class="connect-telegram__text">Stay informed. News, Promo, Level updates etc.</div>

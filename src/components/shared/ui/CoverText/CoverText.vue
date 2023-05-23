@@ -38,7 +38,7 @@ const coverTextClasses = computed(() => ['cover-text', 'parallelogram', `cover-t
       color: $color--background;
 
       &::before {
-        background-color: #f3ba2f;
+        background-color: $color--orange;
       }
     }
   }

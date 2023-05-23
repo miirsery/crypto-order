@@ -92,7 +92,8 @@ const { isMobile } = useScreen()
       backdrop-filter: blur(4.5px);
 
       @include responsive(xs) {
-        transform: skew(-2deg);
+        border-radius: 10px;
+        transform: skew(-3deg);
       }
     }
   }
