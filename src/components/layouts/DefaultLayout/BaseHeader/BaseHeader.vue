@@ -196,7 +196,7 @@ const handleDrawerClose = (): void => {
     display: flex;
     align-items: center;
     cursor: pointer;
-    z-index: 20019;
+    z-index: 10;
 
     > span,
     > span::before,
