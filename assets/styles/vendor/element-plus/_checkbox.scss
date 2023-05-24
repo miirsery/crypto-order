@@ -1,0 +1,17 @@
+.el-checkbox {
+  &__inner {
+    width: 20px !important;
+    height: 20px !important;
+    background: $color--background !important;
+    border: 1px solid rgba($color--white, 0.2) !important;
+    border-radius: 5px !important;
+
+    &::after {
+      position: absolute !important;
+      top: 0 !important;
+      left: 6px !important;
+      width: 5px !important;
+      height: 12px !important;
+    }
+  }
+}

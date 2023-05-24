@@ -11,10 +11,10 @@
           :rules="rules"
         >
           <div class="support-write__form-inputs">
-            <el-form-item label="Your name" prop="name">
+            <el-form-item class="mb-xs-24" label="Your name" prop="name">
               <el-input v-model="supportFormModel.name" />
             </el-form-item>
-            <el-form-item label="E-mail" prop="email">
+            <el-form-item class="mb-xs-47" label="E-mail" prop="email">
               <el-input v-model="supportFormModel.email" type="email" />
             </el-form-item>
           </div>
@@ -51,7 +51,7 @@
     <div class="support-contacts">
       <h3 class="support-contacts__title">Contact with us</h3>
       <div class="support-contacts__list">
-        <div class="support-contacts__item mb-32">
+        <div class="support-contacts__item mb-32 mb-xs-14">
           <div class="support-contacts__item-main">
             <img class="support-contacts__item-image" src="@@/assets/images/Icon-VR.png" alt="support telegram bot" />
             <div>
@@ -75,7 +75,9 @@
               <span class="support-contacts__item-description">Updates, news and opening levels</span>
             </div>
           </div>
-          <div class="support-contacts__button"><h4 class="support-contacts__button-text">GO</h4></div>
+          <div class="support-contacts__button">
+            <h4 class="support-contacts__button-text">GO</h4>
+          </div>
         </div>
       </div>
     </div>
@@ -125,24 +127,55 @@ const handleFormSubmit = (): void => {
   margin-bottom: 112px;
 
   @include responsive(xs) {
+    flex-wrap: wrap;
+    margin-top: 28px;
+    margin-bottom: 60px;
+  }
+  @include responsive(md, $breakpoints-only-max) {
+    flex-wrap: wrap;
     margin-top: 28px;
     margin-bottom: 60px;
   }
 }
 
 .support-write {
+  width: 100%;
+  max-width: 564px;
+
   &__title {
     margin-bottom: 48px;
+
+    @include responsive(xs) {
+      &__title {
+        margin-bottom: 24px;
+      }
+    }
+    @include responsive(md, $breakpoints-only-max) {
+      margin-bottom: 24px;
+    }
   }
 
   &__form {
-    width: 564px;
-    height: 494px;
     border: 1px solid rgba($color--white, 0.2);
     border-radius: 15px;
     background-color: $color--background-2;
     padding: 32px;
     backdrop-filter: blur(4.5px);
+
+    @include responsive(xs) {
+      border: 1px solid rgba($color--white, 0.2);
+      border-radius: 15px;
+      background-color: $color--background-2;
+      padding: 24px;
+      backdrop-filter: blur(4.5px);
+    }
+    @include responsive(md, $breakpoints-only-max) {
+      border: 1px solid rgba($color--white, 0.2);
+      border-radius: 15px;
+      background-color: $color--background-2;
+      padding: 24px;
+      backdrop-filter: blur(4.5px);
+    }
   }
 
   &__form-inputs {
@@ -150,12 +183,18 @@ const handleFormSubmit = (): void => {
     display: flex;
     justify-content: space-between;
     margin-bottom: 47px;
+
+    @include responsive(xs) {
+      max-width: 290px;
+      display: block;
+      margin-bottom: 24px;
+    }
   }
 
   &__question {
     max-width: 500px;
     max-height: 190px;
-    margin-bottom: 16.5px;
+    margin-bottom: 14px;
   }
 
   &__privacy-policy {
@@ -164,11 +203,27 @@ const handleFormSubmit = (): void => {
   }
 
   &__send-button {
-    padding: 14px 232.5px;
+    @include font(14px, 17px, 500);
+
+    width: 100%;
+    max-width: 500px;
+    max-height: 45px;
+    color: $color--white;
+    padding: 14px 0;
+  }
+
+  @include responsive(xs) {
+    margin-bottom: 60px;
+  }
+  @include responsive(md, $breakpoints-only-max) {
+    margin-bottom: 60px;
   }
 }
 
 .support-contacts {
+  width: 100%;
+  max-width: 564px;
+
   &__title {
     margin-bottom: 48px;
   }
@@ -189,13 +244,31 @@ const handleFormSubmit = (): void => {
   }
 
   &__button {
-    width: 78px;
-    height: 231px;
+    width: 100%;
+    max-width: 78px;
+    max-height: 231px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background: linear-gradient(112.89deg, #745bd7 25.01%, #835bd7 50.94%, #9c64e3 72.88%, #9c64e3 72.88%), #191c2e;
     padding-top: 95px;
     backdrop-filter: blur(4.5px);
+
+    @include responsive(xs) {
+      width: 100%;
+      height: 78px;
+      max-width: 600px;
+      border-radius: 0 0 15px 15px;
+      transform: rotate(360deg);
+      padding-top: 24px;
+    }
+    @include responsive(md, $breakpoints-only-max) {
+      width: 100%;
+      height: 78px;
+      max-width: 600px;
+      border-radius: 0 0 15px 15px;
+      transform: rotate(360deg);
+      padding-top: 24px;
+    }
   }
 
   &__button-text {
@@ -203,10 +276,17 @@ const handleFormSubmit = (): void => {
     align-items: center;
     justify-content: center;
     transform: rotate(-90deg);
+
+    @include responsive(xs) {
+      transform: rotate(0deg);
+    }
+    @include responsive(md, $breakpoints-only-max) {
+      transform: rotate(0deg);
+    }
   }
 
   &__item {
-    width: 564px;
+    width: 100%;
     height: 231px;
     display: flex;
     justify-content: space-between;
@@ -214,6 +294,21 @@ const handleFormSubmit = (): void => {
     border-radius: 15px;
     background-color: $color--background-2;
     backdrop-filter: blur(4.5px);
+
+    @include responsive(xs) {
+      width: 100%;
+      height: 309px;
+      display: flex;
+      flex-direction: column;
+      align-content: space-between;
+    }
+    @include responsive(md, $breakpoints-only-max) {
+      width: 100%;
+      height: 309px;
+      display: flex;
+      flex-direction: column;
+      align-content: space-between;
+    }
   }
 
   &__item-image {
