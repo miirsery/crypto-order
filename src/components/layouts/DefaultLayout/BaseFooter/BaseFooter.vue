@@ -4,17 +4,25 @@
 
     <div class="base-footer__main">
       <div class="base-footer__main-content">
-        <base-icon :name="isMobile ? 'logo' : 'logo-2'" width="178" height="30" class="mt-xs-24 mb-xs-42" />
+        <client-only>
+          <base-icon :name="isMobile ? 'logo' : 'logo-2'" width="178" height="30" class="mt-xs-24 mb-xs-42" />
+        </client-only>
 
         <div class="d-f ai-c fd-xs-c ai-xs-fs mb-xs-48">
-          <nuxt-link class="base-footer__text mr-48 mr-xs-0 mb-xs-24" :to="{ path: ROUTE_PATHS.HowWorks }">
+          <nuxt-link class="base-footer__text mr-48 mr-xs-0 mb-xs-24 color-gray-1" :to="{ path: ROUTE_PATHS.HowWorks }">
             How it works?
           </nuxt-link>
-          <nuxt-link class="base-footer__text" :to="{ path: ROUTE_PATHS.SupportPage }"> Support </nuxt-link>
+          <nuxt-link class="base-footer__text color-gray-1" :to="{ path: ROUTE_PATHS.SupportPage }">Support</nuxt-link>
         </div>
 
         <div class="d-f ai-c mb-xs-22">
-          <el-button class="base-footer__connect-button" type="primary">Connect Wallet</el-button>
+          <client-only>
+            <select-wallet v-if="isWalletConnected" />
+          </client-only>
+
+          <el-button v-if="!isWalletConnected" class="base-footer__connect-button" type="primary">
+            Connect Wallet
+          </el-button>
 
           <client-only>
             <select-language />
@@ -38,22 +46,24 @@
 
 <script setup lang="ts">
 import { ROUTE_PATHS } from '~/components/shared/constants'
-import { useScreen } from '~/components/shared/lib/composables/useScreen'
+import { useScreen, useWallet } from '~/components/shared/lib/composables'
 
 const { isMobile } = useScreen()
+
+const { isWalletConnected } = useWallet()
 </script>
 
 <style lang="scss" scoped>
 .base-footer {
   &__main {
-    max-width: 1160px;
+    max-width: 1180px;
     margin: 0 auto;
 
     &-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 32px 0;
+      padding: 32px 10px;
 
       @include responsive(xs) {
         flex-direction: column;
@@ -66,9 +76,9 @@ const { isMobile } = useScreen()
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 48px 0;
+      padding: 48px 10px;
 
-      &-bottom {
+      &__bottom {
         display: flex;
         align-items: center;
 

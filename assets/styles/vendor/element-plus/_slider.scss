@@ -1,0 +1,14 @@
+.el-slider {
+  --el-slider-main-bg-color: var(--color--primary) !important;
+  --el-slider-runway-bg-color: #414455 !important;
+
+  &__button {
+    border: solid 5px var(--el-slider-main-bg-color) !important;
+
+    &-wrapper {
+      top: -10px !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+}

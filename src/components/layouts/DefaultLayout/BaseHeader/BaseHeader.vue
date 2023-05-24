@@ -7,7 +7,13 @@
         </nuxt-link>
 
         <div class="d-f ai-c">
-          <el-button class="base-header__connect-button" type="primary">Connect Wallet</el-button>
+          <client-only>
+            <select-wallet v-if="isWalletConnected" />
+          </client-only>
+
+          <el-button v-if="!isWalletConnected" class="base-header__connect-button" type="primary">
+            Connect Wallet
+          </el-button>
 
           <client-only>
             <select-language />
@@ -27,7 +33,7 @@
 
     <client-only>
       <el-drawer v-model="isBurgerActive" class="base-header__drawer" :show-close="false">
-        <how-works-burger-menu />
+        <how-works-burger-menu @close="handleDrawerClose" />
       </el-drawer>
     </client-only>
   </div>
@@ -35,9 +41,11 @@
 
 <script setup lang="ts">
 import { ROUTE_PATHS } from '~/components/shared/constants'
-import { useScreen } from '~/components/shared/lib/composables/useScreen'
+import { useScreen, useWallet } from '~/components/shared/lib/composables'
+import { BaseIcon } from '~/components/shared/ui'
 
 const { isMobile } = useScreen()
+const { isWalletConnected } = useWallet()
 
 const isBurgerActive = ref(false)
 
@@ -46,11 +54,19 @@ watch(
   () => {
     if (isBurgerActive.value && document) {
       document.body.style.overflow = 'hidden'
+
+      document.documentElement.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
+
+      document.documentElement.style.overflow = 'auto'
     }
   }
 )
+
+const handleDrawerClose = (): void => {
+  isBurgerActive.value = false
+}
 </script>
 
 <style lang="scss" scoped>
@@ -59,10 +75,13 @@ watch(
     position: relative;
     padding: 32px 0;
 
+    @include responsive(md, $breakpoints-only-max) {
+      padding: 24px 22px;
+    }
+
     @include responsive(xs) {
       display: flex;
       justify-content: space-between;
-      padding: 24px 0;
     }
   }
 
@@ -136,7 +155,7 @@ watch(
     display: flex;
     align-items: center;
     cursor: pointer;
-    z-index: 20019;
+    z-index: 10;
 
     > span,
     > span::before,
