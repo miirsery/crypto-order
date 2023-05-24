@@ -9,7 +9,8 @@
 
   .el-select-dropdown {
     &.select-language,
-    &.select-content {
+    &.select-content,
+    &.select-wallet {
       &__popper {
         width: 140px;
         border-radius: 15px;
@@ -48,7 +49,8 @@
   }
 
   &.select-language__popper,
-  &.select-content__popper {
+  &.select-content__popper,
+  &.select-wallet__popper {
     box-shadow: none !important;
 
     .el-popper {

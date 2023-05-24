@@ -8,27 +8,7 @@
 
         <div class="d-f ai-c">
           <client-only>
-            <!--            TODO: Сверстать выбор кошелька-->
-            <el-select
-              v-if="isWalletConnected"
-              v-model="selectedContent"
-              :class="selectedLanguageClasses"
-              :suffix-icon="selectIcon"
-              class="select-content"
-              default-first-option
-              placeholder="en"
-              popper-class="select-content__popper"
-              remote
-              @blur="handleBlur"
-              @change="handleBlur"
-              @focus="handleFocus"
-            >
-              <el-option v-for="{ label, value, hash } in menuList" :key="value" :value="label">
-                <nuxt-link :to="{ path: ROUTE_PATHS.HowWorks, hash }">
-                  {{ label }}
-                </nuxt-link>
-              </el-option>
-            </el-select>
+            <select-wallet v-if="isWalletConnected" />
           </client-only>
 
           <el-button v-if="!isWalletConnected" class="base-header__connect-button" type="primary">
@@ -62,25 +42,12 @@
 <script setup lang="ts">
 import { ROUTE_PATHS } from '~/components/shared/constants'
 import { useScreen, useWallet } from '~/components/shared/lib/composables'
-import { menuList } from '~/components/pages/HowWorks/HowWorksSidebar/HowWorksSidebar.constant'
 import { BaseIcon } from '~/components/shared/ui'
 
 const { isMobile } = useScreen()
 const { isWalletConnected } = useWallet()
 
 const isBurgerActive = ref(false)
-
-const selectedContent = ref(menuList[0].label)
-
-const isFocus = ref(false)
-
-const selectedLanguageClasses = computed(() => ({ focus: isFocus.value }))
-
-const selectIcon = shallowRef({
-  render() {
-    return h(BaseIcon, { name: 'arrow-down', width: 14, height: 7 })
-  },
-})
 
 watch(
   () => isBurgerActive.value,
@@ -96,14 +63,6 @@ watch(
     }
   }
 )
-
-const handleFocus = (): void => {
-  isFocus.value = true
-}
-
-const handleBlur = (): void => {
-  isFocus.value = false
-}
 
 const handleDrawerClose = (): void => {
   isBurgerActive.value = false
