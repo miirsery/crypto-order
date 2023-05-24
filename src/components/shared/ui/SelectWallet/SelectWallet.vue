@@ -63,11 +63,9 @@ watch(
 
       render(h(iconElement), inputWrapper)
 
-      const iconMountedElements = rootElement.querySelectorAll('.s-icon--fox')
+      const iconMountedElement = rootElement.querySelector('.s-icon--fox')
 
-      inputWrapper.prepend(iconMountedElements[0])
-
-      iconMountedElements[1].remove()
+      inputWrapper.prepend(iconMountedElement)
     })
   }
 )
