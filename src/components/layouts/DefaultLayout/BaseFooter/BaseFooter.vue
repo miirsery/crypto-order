@@ -16,7 +16,13 @@
         </div>
 
         <div class="d-f ai-c mb-xs-22">
-          <el-button class="base-footer__connect-button" type="primary">Connect Wallet</el-button>
+          <client-only>
+            <select-wallet v-if="isWalletConnected" />
+          </client-only>
+
+          <el-button v-if="!isWalletConnected" class="base-footer__connect-button" type="primary">
+            Connect Wallet
+          </el-button>
 
           <client-only>
             <select-language />
@@ -40,9 +46,11 @@
 
 <script setup lang="ts">
 import { ROUTE_PATHS } from '~/components/shared/constants'
-import { useScreen } from '~/components/shared/lib/composables'
+import { useScreen, useWallet } from '~/components/shared/lib/composables'
 
 const { isMobile } = useScreen()
+
+const { isWalletConnected } = useWallet()
 </script>
 
 <style lang="scss" scoped>
