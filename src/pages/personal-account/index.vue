@@ -30,12 +30,33 @@
         </swiper>
       </template>
     </player-transactions>
+
+    <client-only>
+      <template v-if="!isMobile">
+        <div class="personal-account__bg-1">
+          <img src="@@/assets/images/bg-1.png" />
+        </div>
+
+        <div class="personal-account__bg-2">
+          <img src="@@/assets/images/account/bg-2.png" />
+        </div>
+
+        <div class="personal-account__bg-3">
+          <img src="@@/assets/images/account/bg-3.png" />
+        </div>
+
+        <div class="personal-account__bg-4">
+          <img src="@@/assets/images/account/bg-4.png" />
+        </div>
+      </template>
+    </client-only>
   </div>
 </template>
 
 <script lang="ts" setup>
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import { useScreen } from '~/components/shared/lib/composables'
 
 const tabs = ['All', 'Game entry', 'Beneficial payment', 'Referral payout', 'Your referrals']
 const tabsBreakpoints = {
@@ -64,6 +85,8 @@ const tabsBreakpoints = {
     slidesPerView: 5,
   },
 }
+
+const { isMobile } = useScreen()
 
 const activeTab = ref(0)
 
@@ -123,6 +146,36 @@ const handleActiveTabChange = (tabIndex: number): void => {
 
         margin-bottom: 24px;
       }
+    }
+  }
+
+  &__bg {
+    &-1 {
+      top: 0;
+      left: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &-2 {
+      top: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &-3 {
+      top: 37%;
+      left: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &-4 {
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      z-index: -1;
     }
   }
 
