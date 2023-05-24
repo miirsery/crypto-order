@@ -49,10 +49,6 @@
           <img src="@@/assets/images/account/bg-4.png" />
         </div>
       </template>
-
-      <!--      <div v-if="isMobile" class="personal-account__bg-2&#45;&#45;mobile">-->
-      <!--        <img src="@@/assets/images/how-works/bg-7-mobile.png" />-->
-      <!--      </div>-->
     </client-only>
   </div>
 </template>
