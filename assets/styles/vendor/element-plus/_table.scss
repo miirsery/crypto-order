@@ -53,6 +53,10 @@
 
             &:first-child {
               padding-left: 48px !important;
+
+              @include responsive(md, $breakpoints-only-max) {
+                padding-left: 24px !important;
+              }
             }
 
             &:last-child {

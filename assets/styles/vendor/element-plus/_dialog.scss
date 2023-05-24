@@ -1,0 +1,23 @@
+.referral-dialog {
+  &__modal {
+    .el-dialog {
+      border: 1px solid rgb(255 255 255 / 0.2);
+      border-radius: 15px;
+      box-shadow: none;
+      background-color: $color--background-2;
+      backdrop-filter: blur(4.5px);
+
+      &__header {
+        padding: 0;
+        margin-right: 0;
+      }
+
+      &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 32px 32px 80px !important;
+      }
+    }
+  }
+}

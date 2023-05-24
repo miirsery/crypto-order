@@ -1,6 +1,11 @@
+:root {
+  --color--primary: #745bd7
+}
+
 $color--white: #fff;
 $color--primary: #745bd7;
 $color--primary-secondary: #9b78ff;
+$color--orange: #f3ba2f;
 $color--gray: #868686;
 $color--gray-1: #c6c6c6;
 $color--gray-2: #e1e1e1;
@@ -11,14 +16,18 @@ $color--gray-6: #c3c3c3;
 $color--gray-7: #878787;
 $color--gray-8: #858585;
 $color--gray-9: #808080;
-$color--gray-10: #4c4d4f;
-$color--gray-11: #afafaf;
+$color--gray-10: #afafaf;
+$color--gray-11: #9b9b9b;
+$color--gray-12: #4c4d4f;
 $color--background: #141627;
 $color--background-2: #191c2e;
+$color--background-3: #2c2f3f;
 
 $colors: (
   ('white', $color--white),
   ('primary', $color--primary),
+  ('orange', $color--orange),
+  ('gray-1', $color--gray-1),
   ('gray-7', $color--gray-7),
   ('gray-8', $color--gray-8),
   ('background', $color--background),
