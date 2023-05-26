@@ -1,4 +1,6 @@
 .el-checkbox {
+  color: $color--white !important;
+
   &__inner {
     width: 20px !important;
     height: 20px !important;
@@ -13,5 +15,9 @@
       height: 12px !important;
       position: absolute !important;
     }
+  }
+
+  &__label {
+    color: $color--white !important;
   }
 }

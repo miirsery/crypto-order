@@ -12,7 +12,9 @@
           <nuxt-link class="base-footer__text mr-48 mr-xs-0 mb-xs-24 color-gray-1" :to="{ path: ROUTE_PATHS.HowWorks }">
             How it works?
           </nuxt-link>
-          <nuxt-link class="base-footer__text color-gray-1" :to="{ path: ROUTE_PATHS.SupportPage }">Support</nuxt-link>
+          <nuxt-link :to="{ path: ROUTE_PATHS.SupportPage }" class="base-footer__text color-gray-1">
+            Support
+          </nuxt-link>
         </div>
 
         <div class="d-f ai-c mb-xs-22">

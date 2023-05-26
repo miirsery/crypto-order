@@ -133,6 +133,7 @@ const handleFormSubmit = (): void => {
   }
   @include responsive(md, $breakpoints-only-max) {
     flex-wrap: wrap;
+    padding: 0 10px;
     margin-top: 28px;
     margin-bottom: 60px;
   }
