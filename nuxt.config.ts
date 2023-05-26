@@ -49,10 +49,6 @@ export default defineNuxtConfig({
         code: 'ru',
         iso: 'ru-RU',
       },
-      {
-        code: 'fr',
-        iso: 'fr-FR',
-      },
     ],
     defaultLocale: 'en',
   },

@@ -2,7 +2,7 @@
   <div class="hero-info">
     <h1 class="hero-info__title">
       <span>On-chain</span>
-      social financial game
+      {{ $t('home.title') }}
 
       <cover-text text="Take a profit in" angle="10" />
     </h1>

@@ -26,7 +26,7 @@ export default defineNuxtPlugin((nuxtApp: any) => {
       )
     }
 
-    if (to.hash) {
+    if (to.hash && process.client) {
       const element = (await findEl(to.hash)) as Awaited<HTMLElement>
 
       if ('scrollBehavior' in document.documentElement.style) {
@@ -34,6 +34,8 @@ export default defineNuxtPlugin((nuxtApp: any) => {
       }
 
       return window.scrollTo(0, element.offsetTop)
+    } else if (process.client) {
+      return window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     }
 
     return { left: 0, top: 0, behaviour: 'smooth' }

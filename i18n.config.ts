@@ -6,23 +6,17 @@ export default defineI18nConfig(() => ({
       msg: {
         title: 'WEeeeel come',
       },
-    },
-    fr: {
-      welcome: 'Bienvenue',
-      msg: {
-        title: 'WEeeeel come',
-      },
-    },
-    ch: {
-      welcome: 'Chi',
-      msg: {
-        title: 'WEeeeel come',
+      home: {
+        title: 'social financial game',
       },
     },
     ru: {
       welcome: 'Добро пожаловать',
       msg: {
         title: 'WEeeeel come',
+      },
+      home: {
+        title: 'Социальная финансовая игра',
       },
     },
   },

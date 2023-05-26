@@ -2,9 +2,6 @@
   <div class="home-page">
     <div class="divider" />
 
-    {{ $t('welcome') }}
-    {{ $t('msg.title') }}
-
     <section class="mb-60 mb-md-200 p-r">
       <hero-info />
 
