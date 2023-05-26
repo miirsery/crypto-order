@@ -11,7 +11,7 @@ type ScreenType = {
   isFullHd: ComputedRef<boolean>
 }
 
-export function useScreen(): ToRefs<ScreenType> {
+export const useScreen = (): ToRefs<ScreenType> => {
   const nuxtApp = useNuxtApp()
 
   return nuxtApp.vueApp.config.globalProperties.$screen as ToRefs<ScreenType>
