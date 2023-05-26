@@ -1,0 +1,52 @@
+@use '@@/assets/styles/resources/variables' as *;
+@use '@@/assets/styles/resources/mixins' as *;
+
+.el-form {
+  .el-form-item {
+    display: block;
+    justify-content: flex-start;
+    margin: 0;
+
+    &__content {
+      min-width: 237px;
+      min-height: 50px;
+
+      &.input-question {
+        width: 500px;
+        height: 50px;
+      }
+    }
+
+    &__label {
+      @include font (15px, 18px, 300);
+
+      width: 211px;
+      align-items: flex-end;
+      justify-content: flex-start;
+      letter-spacing: 0.01em;
+      padding: 0 0 14px;
+    }
+
+    &__error {
+      padding-top: 8px;
+    }
+
+    &.is-error {
+      .el-input__wrapper {
+        box-shadow: 0 0 0 1px $color--gray-8;
+      }
+    }
+  }
+
+  .el-input {
+    &__wrapper {
+      max-height: 50px;
+      border-radius: 10px;
+      padding: 16px;
+
+      &.is-focus {
+        box-shadow: 0 0 0 1px $color--primary !important;
+      }
+    }
+  }
+}

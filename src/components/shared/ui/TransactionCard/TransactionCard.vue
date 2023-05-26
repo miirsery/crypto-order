@@ -72,7 +72,7 @@ const props = withDefaults(defineProps<Props>(), {
   &__title {
     @include font(14px, 17px, 300);
 
-    color: $color--gray-11;
+    color: #afafaf;
   }
 
   &__button {
