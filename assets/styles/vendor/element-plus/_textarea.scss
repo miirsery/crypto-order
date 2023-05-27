@@ -1,0 +1,12 @@
+@use '@@/assets/styles/resources/variables' as *;
+
+.el-textarea {
+  --el-input-focus-border: #745bd7 !important;
+  --el-input-focus-border-color: #745bd7 !important;
+
+  &__inner {
+    &.is-error {
+      box-shadow: 0 0 0 1px $color--gray-8 !important;
+    }
+  }
+}
