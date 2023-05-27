@@ -35,6 +35,12 @@
       .el-input__wrapper {
         box-shadow: 0 0 0 1px $color--gray-8;
       }
+
+      .el-textarea {
+        &__inner {
+          box-shadow: 0 0 0 1px $color--gray-8 !important;
+        }
+      }
     }
   }
 

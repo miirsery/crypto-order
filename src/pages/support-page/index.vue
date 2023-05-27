@@ -1,4 +1,5 @@
 <template>
+  <div class="divider" />
   <section class="support-page">
     <div class="support-write">
       <h3 class="support-write__title">Write to us</h3>
@@ -54,10 +55,10 @@
       <h3 class="support-contacts__title">Contact with us</h3>
 
       <div class="support-contacts__list">
-        <div class="support-contacts__item">
+        <div class="support-contacts__item mb-xs-14 mb-md-14 mb-sm-14">
           <div class="support-contacts__item-main">
             <img class="support-contacts__item-image" src="@@/assets/images/Icon-VR.png" />
-            <div>
+            <div class="pl-32 pl-xs-24 mb-xs-24">
               <h4 class="support-contacts__item-title">Support Telegram Bot</h4>
               <span class="support-contacts__item-description">Write here if you have any problems</span>
             </div>
@@ -70,7 +71,7 @@
         <div class="support-contacts__item">
           <div class="support-contacts__item-main">
             <img class="support-contacts__item-image" src="@@/assets/images/Icon-EmailVerification.png" />
-            <div>
+            <div class="pl-32 pl-xs-24 mb-xs-24">
               <h4 class="support-contacts__item-title">News Telegram Channel</h4>
               <span class="support-contacts__item-description">Updates, news and opening levels</span>
             </div>
@@ -124,9 +125,10 @@ const handleFormSubmit = (): void => {
 
   @include responsive(md, $breakpoints-only-max) {
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding: 0 10px;
-    margin: 28px 0 60px;
+    margin: 32px 0 60px;
   }
 }
 
@@ -202,17 +204,16 @@ const handleFormSubmit = (): void => {
   max-width: 564px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   &__title {
     margin-bottom: 48px;
   }
 
   &__list {
-    height: 500px;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
   }
 
   &__item {
@@ -227,10 +228,9 @@ const handleFormSubmit = (): void => {
     backdrop-filter: blur(4.5px);
 
     &-title {
-      @include font(26px, 31px, 700);
+      @include font(22px, 27px, 700);
 
       margin-bottom: 14px;
-      margin-left: 32px;
     }
 
     &-description {
@@ -238,7 +238,6 @@ const handleFormSubmit = (): void => {
 
       letter-spacing: 0.01em;
       color: $color--gray-9;
-      margin-left: 32px;
     }
 
     &-image {
@@ -281,5 +280,12 @@ const handleFormSubmit = (): void => {
       transform: rotate(360deg);
     }
   }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: transparent radial-gradient(rgba($color--white, 1), rgba($color--white, 0));
+  opacity: 0.1;
 }
 </style>
