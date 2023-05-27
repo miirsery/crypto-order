@@ -1,5 +1,6 @@
 <template>
   <div class="divider" />
+
   <section class="support-page">
     <div class="support-write">
       <h3 class="support-write__title">Write to us</h3>
