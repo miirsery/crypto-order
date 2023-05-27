@@ -1,6 +1,6 @@
 <template>
   <div class="connect-telegram">
-    <div class="mb-24 d-f ai-c">
+    <div class="mb-24 mb-xs-12 d-f ai-c">
       <h2 class="connect-telegram__title">Connect to us <span class="color-orange">in Telegram</span></h2>
       <link-button to="#" outline />
     </div>
@@ -32,7 +32,7 @@
     color: $color--gray-2;
 
     @include responsive(xs) {
-      max-width: 196px;
+      max-width: 200px;
     }
   }
 
@@ -50,7 +50,7 @@
 
   @include responsive(xs) {
     align-items: flex-start;
-    padding: 32px;
+    padding: 30px 32px;
   }
 
   @include responsive(xs-small) {

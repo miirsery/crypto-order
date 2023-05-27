@@ -22,7 +22,28 @@ export const transactionsData = [
   },
   {
     type: 'Your referrals',
+    id: 34292,
+    profit: 0.3492,
+    date: '30.05.2023',
+    time: '18:31',
+  },
+  {
+    type: 'Your referrals',
+    id: 349121,
+    profit: 0.3492,
+    date: '30.05.2023',
+    time: '18:31',
+  },
+  {
+    type: 'Your referrals',
     id: 3492,
+    profit: 0.3492,
+    date: '30.05.2023',
+    time: '18:31',
+  },
+  {
+    type: 'Your referrals',
+    id: 34592,
     profit: 0.3492,
     date: '30.05.2023',
     time: '18:31',

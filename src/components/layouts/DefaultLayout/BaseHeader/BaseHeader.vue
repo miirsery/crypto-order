@@ -71,6 +71,8 @@ const handleDrawerClose = (): void => {
 
 <style lang="scss" scoped>
 .base-header {
+  padding: 0 10px;
+
   &__wrapper {
     position: relative;
     padding: 32px 0;
@@ -82,6 +84,7 @@ const handleDrawerClose = (): void => {
     @include responsive(xs) {
       display: flex;
       justify-content: space-between;
+      padding: 20px 12px;
     }
   }
 

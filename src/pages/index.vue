@@ -2,12 +2,18 @@
   <div class="home-page">
     <div class="divider" />
 
-    <section class="mb-60 mb-md-200 p-r">
+    <section>
       <hero-info />
 
       <hero-stats />
 
-      <base-icon name="hero-blocks" />
+      <client-only>
+        <base-icon v-if="!isMobile" name="hero-blocks" />
+
+        <div v-else class="home-page__blocks-mobile">
+          <img src="@@/assets/images/blocks--mobile.png" />
+        </div>
+      </client-only>
     </section>
 
     <section class="home-page__timer-section">
@@ -49,7 +55,7 @@
       </div>
     </section>
 
-    <section class="mb-200 mb-xs-60">
+    <section class="mt-200 mt-xs-60">
       <div class="home-page__subtitle">How to start?</div>
 
       <div class="home-page__start-bg">
@@ -63,8 +69,10 @@
       <div class="home-page__start">
         <cover-text text="let's start" angle="-10" />
 
-        <base-icon v-if="!isMobile" name="line-4" />
-        <base-icon v-else width="46" height="25" name="line-4--mobile" />
+        <client-only>
+          <base-icon v-if="!isMobile" name="line-4" />
+          <base-icon v-else width="46" height="25" name="line-4--mobile" />
+        </client-only>
 
         <div class="home-page__start-block parallelogram">
           <h4>Connect wallet</h4>
@@ -89,30 +97,35 @@
     </section>
 
     <section class="home-page__beads">
-      <el-row align="middle" :gutter="isMobile ? 0 : 24">
+      <el-row align="middle">
         <el-col :xs="24" :span="12" class="p-r mb-xs-32">
-          <cover-text text="Take a profit in" :angle="isMobile ? 6 : -10" />
+          <client-only>
+            <cover-text text="Take a profit in" :angle="isMobile ? 6 : 9.5" />
+          </client-only>
 
-          <base-icon name="blocks" class="home-page__beads-image" />
+          <div class="home-page__beads-image-wrapper">
+            <base-icon name="blocks" class="home-page__beads-image" />
+          </div>
         </el-col>
-        <el-col :xs="24" :span="12" class="p-0 pl-sm-10">
-          <h2 class="mb-24"> Game <span class="color-orange">“Beads”</span> </h2>
-          <div class="mb-48">
-            <p>
+        <el-col :xs="24" :span="12" class="pl-10 pl-sm-60">
+          <h2> Game <span class="color-orange">“Beads”</span> </h2>
+          <div class="mb-48 mb-xs-32 mt-24 mt-xs-14 pr-xs-10">
+            <p class="home-page__beads-text">
               From the purchase of a place by a new player, paid: <br />
               - 30% for the nearest three players waiting in line; <br />
               - 7% on referral rewards; <br />
               - 3% registration free.
             </p>
-            <br />
-            <p> Each seat purchased entitles you to receive 4 payments of 30% each, for a total of 120%.</p>
-            <br />
-            <p>
+            <p class="mt-10 mt-xs-20 home-page__beads-text">
+              Each seat purchased entitles you to receive 4 payments of 30% each, for a total of 120%.
+            </p>
+            <p class="mt-10 mt-xs-20 home-page__beads-text">
               From each payment of 30%, a portion (25%) is set aside for the purchase of the next seat, and the
               remaining 5% is paid as a reward.
             </p>
-            <br />
-            <p>After 4 payouts, the next place is automatically purchased with payment to the next players.</p>
+            <p class="mt-10 mt-xs-20 home-page__beads-text">
+              After 4 payouts, the next place is automatically purchased with payment to the next players.
+            </p>
           </div>
 
           <link-button outline :to="ROUTE_PATHS.HowWorks">How it works?</link-button>
@@ -122,25 +135,31 @@
 
     <player-transactions class="transactions">
       <template #title>
-        <h2 class="transactions__title">Your transactions</h2>
+        <h2 class="transactions__title">Latest transactions</h2>
       </template>
     </player-transactions>
 
-    <div class="home-page__bg-1">
-      <img src="@@/assets/images/bg-1.png" />
-    </div>
+    <client-only>
+      <div class="home-page__bg-1">
+        <img src="@@/assets/images/bg-1.png" />
+      </div>
 
-    <div class="home-page__bg">
-      <img src="@@/assets/images/bg-3.png" />
-    </div>
+      <div class="home-page__bg">
+        <img src="@@/assets/images/bg-3.png" />
+      </div>
 
-    <div class="home-page__bg-3">
-      <img src="@@/assets/images/bg-5.png" />
-    </div>
+      <div class="home-page__bg-3">
+        <img src="@@/assets/images/bg-5.png" />
+      </div>
 
-    <div class="home-page__bg-4">
-      <img src="@@/assets/images/bg-6.png" />
-    </div>
+      <div class="home-page__bg-4">
+        <img src="@@/assets/images/bg-6.png" />
+      </div>
+
+      <div v-if="isMobile" class="home-page__bg-5">
+        <img src="@@/assets/images/bg-beads-mobile.png" />
+      </div>
+    </client-only>
   </div>
 </template>
 
@@ -157,6 +176,21 @@ const { isMobile } = useScreen()
   padding: 0 10px;
   margin-bottom: 200px;
 
+  &__blocks-mobile {
+    top: 600px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 370px;
+    position: absolute;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
   img {
     width: 100%;
     height: 100%;
@@ -165,14 +199,14 @@ const { isMobile } = useScreen()
 
   .s-icon {
     &--hero-blocks {
-      left: 50%;
-      bottom: -90px;
+      left: 49%;
+      bottom: -56px;
       width: 100%;
-      height: 100%;
+      height: 113%;
       max-width: 1294px;
       max-height: 747px;
       position: absolute;
-      transform: translateX(-50%);
+      transform: translateX(-49%);
       z-index: -1;
     }
   }
@@ -211,27 +245,41 @@ const { isMobile } = useScreen()
       position: absolute;
       z-index: -1;
     }
+
+    &-5 {
+      top: 37%;
+      right: 0;
+      bottom: 50%;
+      width: 100%;
+      height: 897px;
+      position: absolute;
+      z-index: -1;
+    }
   }
 
   &__beads {
     max-width: 1062px;
     position: relative;
-    margin: 0 auto 200px;
+    margin-top: 200px;
 
     .cover-text {
-      top: -17px;
-      right: -30px;
+      top: -3px;
+      right: -23px;
       z-index: 2;
 
       @include responsive(xs) {
-        top: -7px;
-        right: 5px;
-        padding: 9px 15px;
+        top: -14px;
+        right: 10px;
+        padding: 9px 18px;
       }
     }
 
     .link-button {
-      width: 235px;
+      width: 205px;
+
+      @include responsive(xs) {
+        width: 235px;
+      }
     }
 
     h2 {
@@ -246,16 +294,33 @@ const { isMobile } = useScreen()
       @include font(16px, 22px, 300);
 
       color: $color--gray-2;
+
+      @include responsive(xs) {
+        @include font(14px, 20px, 300);
+      }
     }
 
     &-image {
       width: 100%;
       height: 100%;
-      max-width: 510px;
-      max-height: 589px;
-      border-radius: 15px;
-      background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 100%),
-        $color--background-2;
+
+      &-wrapper {
+        width: 100%;
+        height: 589px;
+        max-width: 510px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 100%),
+          $color--background-2;
+
+        @include responsive(xs) {
+          width: 100%;
+          max-width: 338px;
+          max-height: 390px;
+        }
+      }
 
       @include responsive(xs) {
         width: 100%;
@@ -266,7 +331,7 @@ const { isMobile } = useScreen()
     }
 
     @include responsive(xs) {
-      margin-bottom: 60px;
+      margin-top: 95px;
     }
   }
 
@@ -275,7 +340,6 @@ const { isMobile } = useScreen()
 
     letter-spacing: 0.01em;
     text-align: center;
-    margin-bottom: 70px;
 
     @include responsive(sm, $breakpoints-only-max) {
       @include font(28px, 34px, 700);
@@ -285,13 +349,14 @@ const { isMobile } = useScreen()
   }
 
   &__timer {
-    max-width: 908px;
+    max-width: 889px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 0 auto;
+    margin-top: 70px;
 
     .base-icon {
       top: -195px;
@@ -326,21 +391,32 @@ const { isMobile } = useScreen()
         right: 50%;
         transform: rotate(0deg) translateX(50%) !important;
       }
+
+      @media screen and (width <= 440px) {
+        top: -56px;
+        padding: 8px 20px;
+      }
     }
 
     &-section {
-      margin-bottom: 200px;
+      margin-top: 200px;
 
       @media screen and (width <= 842px) {
         position: relative;
 
         .home-page__subtitle {
-          margin-bottom: 80px;
+          margin-top: 80px;
+        }
+      }
+
+      @media screen and (width <= 440px) {
+        .home-page__subtitle {
+          margin-top: 53px;
         }
       }
 
       @include responsive(xs) {
-        margin-bottom: 20px;
+        margin-top: 20px;
       }
     }
 
@@ -367,14 +443,64 @@ const { isMobile } = useScreen()
     &-inner {
       display: flex;
       align-items: center;
+
+      &:first-child {
+        .home-page {
+          &__timer {
+            &-colon {
+              margin-right: 24px;
+
+              @media screen and (width <= 440px) {
+                margin-right: 12px;
+              }
+            }
+
+            &-block {
+              &:first-child {
+                margin-right: 20px;
+
+                @media screen and (width <= 440px) {
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        .home-page {
+          &__timer {
+            &-colon {
+              margin-left: 24px;
+
+              @media screen and (width <= 440px) {
+                margin-left: 12px;
+              }
+            }
+
+            &-block {
+              &:last-child {
+                margin-left: 20px;
+
+                @media screen and (width <= 440px) {
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
     &-colon {
       @include font(48px, 58px, 600);
 
+      top: -7px;
+      left: 2px;
+      position: relative;
       font-family: 'Inter', serif;
       color: $color--gray-4;
-      margin: 0 10px;
     }
 
     &-block {
@@ -408,6 +534,10 @@ const { isMobile } = useScreen()
 
       @media screen and (width <= 842px) {
         padding: 18px;
+      }
+
+      @media screen and (width <= 440px) {
+        height: 99px;
       }
     }
 
@@ -444,6 +574,10 @@ const { isMobile } = useScreen()
         }
       }
     }
+
+    @media screen and (width <= 440px) {
+      margin-top: 80px;
+    }
   }
 
   &__transactions {
@@ -464,6 +598,8 @@ const { isMobile } = useScreen()
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 49px;
     row-gap: 20px;
 
     &-bg {
@@ -486,27 +622,27 @@ const { isMobile } = useScreen()
 
     .cover-text {
       top: -15px;
-      left: -15px;
+      left: 0;
 
       @include responsive(xs) {
-        top: 5px;
-        left: 11px;
-        padding: 6px 16px;
+        top: -16px;
+        left: 5px;
+        padding: 7px 19px;
       }
     }
 
     .base-icon {
-      top: -100px;
-      left: 100px;
+      top: -87px;
+      left: 109px;
       width: 247px;
       height: 58px;
       position: absolute;
 
       @include responsive(xs) {
-        top: -30px;
-        left: 30px;
-        width: 46px;
-        height: 25px;
+        top: -69px;
+        left: 32px;
+        width: 25px;
+        height: 46px;
       }
     }
 
@@ -538,9 +674,11 @@ const { isMobile } = useScreen()
     }
 
     &-block {
-      &:not(:last-child) {
-        margin-right: 12px;
+      width: 357px;
+      height: 196px;
+      padding: 30px;
 
+      &:not(:last-child) {
         @include responsive(xs-small) {
           margin-right: 0;
         }
@@ -552,7 +690,6 @@ const { isMobile } = useScreen()
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 48px 75px;
 
           &::before {
             border: 1px solid rgb(255 255 255 / 0.1);
@@ -581,7 +718,6 @@ const { isMobile } = useScreen()
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 48px 75px;
 
         &::before {
           border: 1px solid rgb(255 255 255 / 0.1);
@@ -637,6 +773,8 @@ const { isMobile } = useScreen()
 }
 
 .transactions {
+  margin-top: 200px;
+
   &__title {
     @include font(50px, 60px, 700);
 
@@ -649,6 +787,10 @@ const { isMobile } = useScreen()
 
       margin-bottom: 24px;
     }
+  }
+
+  @include responsive(xs) {
+    margin-top: 60px;
   }
 }
 </style>
