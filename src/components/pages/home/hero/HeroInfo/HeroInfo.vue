@@ -4,15 +4,15 @@
       <span>On-chain</span>
       social financial game
 
-      <cover-text text="Take a profit in" angle="10" />
+      <cover-text text="Take a profit in" angle="11.3" />
     </h1>
 
     <client-only>
       <base-icon v-if="isMobile" name="line-1--mobile" width="15" height="54" />
       <base-icon v-else name="line-1" width="140" height="38" />
-    </client-only>
 
-    <base-icon name="line-2" width="133" height="96" />
+      <base-icon name="line-2" width="133" height="96" />
+    </client-only>
 
     <div class="bnb-balance">
       <div class="bnb-balance__title"> BNB Balance </div>
@@ -28,19 +28,19 @@
     <div class="bnb-profit">
       <div class="bnb-profit__title"> BNB profit </div>
       <template v-if="!isMobile">
-        <div class="d-f ai-c mb-8">
+        <div class="d-f ai-c mb-12">
           <div class="bnb-profit__amount"> +0.3492 </div>
           <base-icon name="binance-logo" width="20" height="20" />
         </div>
-        <div class="d-f ai-c mb-8">
+        <div class="d-f ai-c mb-12">
           <div class="bnb-profit__amount"> +0.3492 </div>
           <base-icon name="binance-logo" width="20" height="20" />
         </div>
-        <div class="d-f ai-c mb-8">
+        <div class="d-f ai-c mb-12">
           <div class="bnb-profit__amount"> +0.3492 </div>
           <base-icon name="binance-logo" width="20" height="20" />
         </div>
-        <div class="d-f ai-c mb-8">
+        <div class="d-f ai-c mb-12">
           <div class="bnb-profit__amount"> +0.3492 </div>
           <base-icon name="binance-logo" width="20" height="20" />
         </div>
@@ -111,8 +111,8 @@ const { isMobile } = useScreen()
 
   .s-icon {
     &--line-1 {
-      top: 30px;
-      left: 172px;
+      top: 36px;
+      left: 142px;
       position: absolute;
 
       &--mobile {
@@ -121,8 +121,9 @@ const { isMobile } = useScreen()
         position: absolute;
 
         @include responsive(xs) {
-          top: 97%;
-          left: 30%;
+          top: auto;
+          left: 54px;
+          bottom: -40px;
         }
       }
 
@@ -135,7 +136,7 @@ const { isMobile } = useScreen()
 
     &--line-2 {
       top: -20px;
-      right: 130px;
+      right: 110px;
       position: absolute;
 
       @include responsive(md, $breakpoints-only-max) {
@@ -158,6 +159,19 @@ const { isMobile } = useScreen()
     }
   }
 
+  .cover-text {
+    top: -10px;
+    right: 55px;
+    padding: 9px 13px;
+
+    @include responsive(xs) {
+      top: -20px;
+      right: 20px;
+      transform: rotate(6deg) !important;
+      padding: 6px 10px;
+    }
+  }
+
   &__title {
     @include font(70px, 84px, 700);
 
@@ -166,17 +180,6 @@ const { isMobile } = useScreen()
     position: relative;
     letter-spacing: 0.01em;
     margin-bottom: 24px;
-
-    .cover-text {
-      top: -5px;
-      right: 65px;
-
-      @include responsive(xs) {
-        top: -16px;
-        right: 10px;
-        transform: rotate(6deg) !important;
-      }
-    }
 
     span {
       color: $color--primary-secondary;
@@ -201,6 +204,12 @@ const { isMobile } = useScreen()
     color: $color--background;
     background-color: $color--white;
     margin-bottom: 24px;
+
+    @include responsive(xs) {
+      &.el-button {
+        padding: 14px 49px !important;
+      }
+    }
   }
 
   &__link {
@@ -215,8 +224,8 @@ const { isMobile } = useScreen()
 }
 
 .bnb-balance {
-  top: 80px;
-  left: 0;
+  top: 92px;
+  left: 9px;
   position: absolute;
   border: 1px solid rgba($color--white, 0.2);
   border-radius: 10px;
@@ -246,12 +255,22 @@ const { isMobile } = useScreen()
 
     color: $color--primary;
     margin-left: 23px;
+
+    @include responsive(xs) {
+      @include font(14px, 17px, 700);
+
+      margin-left: 12px;
+    }
   }
 
   &__amount {
     @include font(22px, 27px, 700);
 
     margin-right: 9px;
+
+    @include responsive(xs) {
+      @include font(18px, 21px, 700);
+    }
   }
 
   &__title {
@@ -271,20 +290,22 @@ const { isMobile } = useScreen()
   }
 
   @include responsive(xs) {
-    top: 110%;
-    left: 5%;
+    top: auto;
+    left: 15px;
+    bottom: -132px;
+    transform: rotate(2.9deg);
   }
 }
 
 .bnb-profit {
-  top: 110px;
-  right: 0;
+  top: 95px;
+  right: 27px;
   position: absolute;
   border: 1px solid rgba($color--white, 0.2);
   border-radius: 10px;
   background-color: $color--background;
   transform: rotate(-3.01deg);
-  padding: 19px 24px;
+  padding: 18px 20px;
 
   .shadow {
     left: 0;
@@ -325,10 +346,16 @@ const { isMobile } = useScreen()
     right: 50px;
   }
 
-  @include responsive(xs) {
-    top: 400px;
+  @media screen and (width <= 767px) and (width >= 440px) {
+    top: 300px;
     right: 10px;
     transform: rotate(-0.03deg);
+  }
+
+  @media screen and (width <= 439px) {
+    top: 430px;
+    right: 29px;
+    transform: rotate(0deg);
   }
 }
 </style>

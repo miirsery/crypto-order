@@ -15,7 +15,7 @@
     <div v-if="!isMobile" class="divider" />
 
     <div class="hero-stats__stat">
-      <h3>21 578</h3>
+      <h3>$21 578</h3>
       <div class="hero-stats__stat-subtitle">turnover</div>
     </div>
 
@@ -45,7 +45,7 @@ const { isMobile } = useScreen()
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 60px;
+  padding: 32px 0;
   margin: 0 auto;
 
   &__stat {
@@ -65,6 +65,10 @@ const { isMobile } = useScreen()
     }
 
     h3 {
+      @include font(48px, 58px, 500);
+
+      margin-bottom: 12px;
+
       @include responsive(xs) {
         @include font(30px, 36px, 500);
       }

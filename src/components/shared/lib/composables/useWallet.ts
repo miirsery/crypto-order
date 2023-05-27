@@ -1,5 +1,5 @@
 const userProfile = ref<any>()
-const isWalletConnected = ref(true)
+const isWalletConnected = ref(false)
 
 export const useWallet = () => {
   const set = (user: any) => {

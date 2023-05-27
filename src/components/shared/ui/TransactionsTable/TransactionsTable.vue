@@ -1,17 +1,17 @@
 <template>
   <div class="transaction-table">
     <el-table :data="props.transactions" style="width: 100%">
-      <el-table-column label="Transactions">
+      <el-table-column label="Transactions" width="289">
         <template #default="{ row }">
           <span :style="{ color: generateColorByType(row.type) }">{{ row.type }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="ID">
+      <el-table-column label="ID" width="243">
         <template #default="{ row }">
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="BNB profit" class-name="transaction-table__coin">
+      <el-table-column label="BNB profit" class-name="transaction-table__coin" width="243">
         <template #default="{ row }">
           <div class="mr-10">{{ row.profit }}</div>
           <base-icon name="binance-logo" class="icon-24" />

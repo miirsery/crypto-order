@@ -108,7 +108,7 @@ const handleDefaultLinkUse = (): void => {
   }
 
   &__content {
-    max-width: 1175px;
+    max-width: 1180px;
     margin: 0 auto;
   }
 }

@@ -1,21 +1,21 @@
 <template>
   <div class="transaction-card">
     <div>
-      <div class="d-f ai-c jc-sb mb-18">
+      <div class="d-f ai-c jc-sb mb-16">
         <div class="transaction-card__value">
           <span :style="{ color: generateColorByType(props.transaction.type) }">{{ props.transaction.type }}</span>
         </div>
         <div class="transaction-card__title"> Transactions </div>
       </div>
 
-      <div class="d-f ai-c jc-sb mb-18">
+      <div class="d-f ai-c jc-sb mb-16">
         <div class="transaction-card__value">
           {{ props.transaction.id }}
         </div>
         <div class="transaction-card__title"> ID </div>
       </div>
 
-      <div class="d-f ai-c jc-sb mb-18">
+      <div class="d-f ai-c jc-sb mb-16">
         <div class="transaction-card__value d-f ai-c">
           {{ props.transaction.profit }}
 
@@ -63,7 +63,7 @@ const props = withDefaults(defineProps<Props>(), {
   border: 1px solid rgba($color--white, 0.2);
   border-radius: 10px;
   background-color: $color--background-2;
-  padding: 24px;
+  padding: 23px;
 
   &__value {
     @include font(15, 18px, 500);
