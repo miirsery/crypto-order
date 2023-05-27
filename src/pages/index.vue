@@ -355,8 +355,7 @@ const { isMobile } = useScreen()
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
-    margin-top: 70px;
+    margin: 70px auto 0;
 
     .base-icon {
       top: -195px;
