@@ -37,7 +37,21 @@ export default defineNuxtConfig({
     },
   },
   css: ['assets/styles/index.scss'],
-  modules: ['@element-plus/nuxt', '@nuxtjs/eslint-module'],
+  modules: ['@element-plus/nuxt', '@nuxtjs/eslint-module', '@nuxtjs/i18n'],
+  i18n: {
+    // baseUrl: 'https://my-nuxt-app.com', // TODO: Добавить ссылку
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+      },
+      {
+        code: 'ru',
+        iso: 'ru-RU',
+      },
+    ],
+    defaultLocale: 'en',
+  },
   vite: {
     css: {
       preprocessorOptions: {

@@ -31,7 +31,7 @@
       </el-col>
 
       <el-col :xs="24" :sm="24" :md="17">
-        <div class="mb-48">
+        <div id="about-game" class="mb-48">
           <h3 class="mb-24">About game</h3>
           <p class="how-works__text">The BNB Game is an auto decentralized BNB game based on smart contracts </p>
           <br />

@@ -15,8 +15,13 @@
     @change="handleBlur"
     @focus="handleFocus"
   >
-    <el-option v-for="{ label, country, value } in languages" :key="value" :value="value">
-      <span class="mr-4">{{ label }}</span>
+    <el-option
+      v-for="{ label, country, value } in languages"
+      :key="value"
+      :value="value"
+      @click="handleLanguageChange(label)"
+    >
+      <span class="mr-4">{{ value }}</span>
       <span class="color-gray-8">({{ country }})</span>
     </el-option>
   </el-select>
@@ -27,21 +32,31 @@ import { BaseIcon } from '~/components/shared/ui'
 
 const languages = [
   {
-    label: 'En',
+    label: 'en',
     country: 'USA',
     value: 'En',
   },
   {
-    label: 'Ru',
+    label: 'ru',
     country: 'Russia',
     value: 'Ru',
   },
   {
-    label: 'Ch',
+    label: 'fr',
+    country: 'Fra',
+    value: 'Fr',
+  },
+  {
+    label: 'ch',
     country: 'China',
     value: 'Ch',
   },
 ]
+
+const router = useRouter()
+
+const switchLocalePath = useSwitchLocalePath()
+
 const selectedLanguage = ref(languages[0].value)
 
 const isFocus = ref(false)
@@ -60,6 +75,10 @@ const handleFocus = (): void => {
 
 const handleBlur = (): void => {
   isFocus.value = false
+}
+
+const handleLanguageChange = (label: string): void => {
+  router.replace(switchLocalePath(label))
 }
 </script>
 

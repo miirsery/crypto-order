@@ -164,9 +164,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ROUTE_PATHS, transactionsData } from '~/components/shared/constants'
+import { ROUTE_PATHS } from '~/components/shared/constants'
 import { BaseIcon } from '~/components/shared/ui'
 import { useScreen } from '~/components/shared/lib/composables'
+
+// useHead({
+//   meta: [{ property: 'og:title', content: 'This is the main page with general information about the project' }],
+// })
 
 const { isMobile } = useScreen()
 </script>
